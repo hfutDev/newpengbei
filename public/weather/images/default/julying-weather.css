@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+.julying-weather .sunshine .child-0{ background:url(sunshine_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/sunshine_0.png'); _background:none;}
+.julying-weather .cloudy .child-0{ background:url(cloudy_0.png) no-repeat; _background:none; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/cloudy_0.png');}
+.julying-weather .overcast .child-0{ background:url(overcast_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/overcast_0.png'); _background:none;}
+.julying-weather .overcast .child-1{ background:url(overcast_1.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/overcast_1.png'); _background:none;}
+.julying-weather .rainy .child-0{background:url(rainy_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/rainy_0.png'); _background:none;}
+.julying-weather .rainy .child-1{background:url(rainy_1.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/rainy_1.png'); _background:none;}
+.julying-weather .rainy i{background:url(rain_drop_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/rain_drop_0.png'); _background:none;}
+.julying-weather .sleet .child-0{ background:url(sleet_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/sleet_0.png'); _background:none;}
+.julying-weather .sleet .child-1{ background:url(sleet_1.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/sleet_1.png'); _background:none;}
+.julying-weather .sleet .drop-0 i{ background:url(sleet_drop_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/sleet_drop_0.png'); _background:none;}
+.julying-weather .sleet .drop-1 i{ background:url(sleet_drop_1.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/sleet_drop_1.png'); _background:none;}
+.julying-weather .snow .child-0{ background:url(snow_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/snow_0.png'); _background:none;}
+.julying-weather .snow .child-1{ background:url(snow_1.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/snow_1.png'); _background:none;}
+.julying-weather .snow i{ background:url(snow_drop_0.png) no-repeat; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=noscale,src='http://julying.com/lab/weather/images/default/snow_drop_0.png'); _background:none;}
+
+
+.julying-weather .sky .child-0{width:100px; height:100px;}
+.julying-weather .sky .child-1{width:80px; height:60px; }
+.julying-weather .rainy .drop{ width:7px; height:15px; }
+.julying-weather .rainy .child-0 .drop{top:50px;}
+.julying-weather .rainy .child-1 .drop{top:40px;}
+.julying-weather .sleet .child-0 .drop{top:50px;}
+.julying-weather .sleet .child-1 .drop{top:40px;}
+.julying-weather .sleet .drop-0{ width:7px; height:15px; }
+.julying-weather .sleet .drop-1{ width:13px; height:15px; }
+.julying-weather .snow .drop{ width:13px; height:15px; }
+.julying-weather .snow .child-0 .drop{top:50px;}
+.julying-weather .snow .child-1 .drop{top:40px;}
+

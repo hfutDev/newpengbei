@@ -1,0 +1,158 @@
+<?php
+	$UserName = $_SESSION['user']['RealName'];
+	$LastLoginStamp = $_SESSION['user']['LastLoginTime'];
+	$LastLoginTime = $LastLoginStamp?date('Y-m-d H:i:s',$LastLoginStamp):null;
+	$UserDeptName = $_SESSION['user']['DeptName'];
+	switch ($_SESSION['user']['Type']) {
+		case '1': $UserType = "超级管理员"; break;
+		case '2': $UserType = "网站审核"; break;
+		case '3': $UserType = "网站编辑"; break;
+		default : $UserType = "网站编辑"; break;
+	}
+	function ListMyArticle($arrArticle,$countArticle,$arrDept,$arrColumn) {
+		if ($countArticle>5) $countArticle = 5;
+		for ($i=0; $i<$countArticle; $i++) {
+			$Title = $arrArticle[$i]['Title'];
+			$ID = $arrArticle[$i]['ID'];
+			$Column = $arrColumn[$arrArticle[$i]['ColumnID']-1]['ColumnName'];
+			$WriteTime = date('Y-m-d',$arrArticle[$i]['WriteTime']);
+			$RealClick = $arrArticle[$i]['RealClick'];
+			switch ($arrArticle[$i]['Published']) {
+				case -1: $PublishInfo="已退稿";break;
+				case  0: $PublishInfo="待审核";break;
+				case  1: $PublishInfo="已审核";break;
+				case  2: $PublishInfo="已修正";break;
+			}
+			echo "
+			<tr>
+				<td><a href=\"/pengbei/article/id/$ID\" title=\"预览文章\" target=\"_blank\">$Title</a></td>
+				<td>$Column</td>
+				<td>$WriteTime</td>
+				<td>$PublishInfo</td>
+				<td>$RealClick 次</td>
+			</tr>";
+		}
+	}
+?>
+<div class="content-box column-left">
+
+	<div class="content-box-header">
+
+	<h3>欢迎你</h3>
+
+	</div> <!-- End .content-box-header -->
+
+	<div class="content-box-content">
+
+		<div class="weather"></div>
+		<div class="tab-content default-tab" style="padding-left:115px;">
+
+			<h4><?=$UserName?></h4>
+			<p>
+				<?=$UserType?><br>
+				<?=$UserDeptName?>
+			</p>
+			<p><?php if ($LastLoginTime) echo "上次登录：$LastLoginTime"; ?></p>
+
+		</div> <!-- End #tab3 -->        
+
+	</div> <!-- End .content-box-content -->
+
+</div> <!-- End .content-box -->
+
+
+
+<div class="content-box column-right">
+
+	<div class="content-box-header"> <!-- Add the class "closed" to the Content box header to have it closed by default -->
+
+		<h3>工作状态</h3>
+
+	</div> <!-- End .content-box-header -->
+
+	<div class="content-box-content">
+
+		<div class="tab-content default-tab">
+
+			<?php if($_SESSION['user']['DeptID']==0) { ?>
+
+			<h4>概况</h4>
+			<p style="padding:0px 0px 9px 0px;">
+				<b>┣全站总发帖数： </b><a href="/admin/listarticle"><?=$this->All?> 篇</a><br>
+				<b>┗本人总发帖数： </b><a href="/admin/listarticle/by/self"><?=$this->Self?> 篇</a><br>
+			</p>
+			<h4>自上次登录后</h4>
+			<p style="padding:0;">
+				<b>┗全站新发帖数： </b><a href="/admin/listarticle/from/<?=$LastLoginStamp?>"><?=$this->UnRead?> 篇</a><br>
+			</p>
+
+			<?php } else { ?>
+
+			<p style="padding-top:0px;">
+				<b>本周发帖： </b><?=$this->SelfThisWeek?> 篇<br>
+				<b>本人总贴： </b><?=$this->Self?> 篇<br>
+				<b>本院总帖： </b><?=$this->Dept?> 篇<br>
+				<b>┣待审核数： </b><?=$this->DeptWait?> 篇<br>
+				<b>┗被退稿数： </b><?=$this->DeptReject?> 篇<br>
+			</p>
+
+			<?php } ?>
+
+		</div> <!-- End #tab3 -->        
+
+	</div> <!-- End .content-box-content -->
+
+</div> <!-- End .content-box -->
+
+
+<div class="clear"></div>
+
+
+<div class="content-box"><!-- Start Content Box -->
+
+	<div class="content-box-header">
+
+		<h3>我发表的文章</h3>
+		<a href="/admin/listarticle/by/self" style="font-size:16px;padding:11px 15px;float:right;">更多»</a>
+
+	</div> <!-- End .content-box-header -->
+
+	<div class="content-box-content">
+
+		<div class="tab-content default-tab" id="tab1"> <!-- This is the target div. id must match the href of this div's tab -->
+
+			<?php if ($this->SelfReject) { ?>
+			<a href="/admin/listarticle/by/self/type/reject">
+				<div class="notification error png_bg">
+					<div>
+					你有<?=$this->SelfReject?>篇文章被退稿，请点击此处查看，并及时进行修改！
+					</div>
+				</div>
+			</a>
+			<?php } ?>
+
+		<table>
+
+		<thead>
+			<tr>
+				<th>文章标题</th>
+				<th>所属栏目</th>
+				<th>发帖时间</th>
+				<th>状态</th>
+				<th>浏览量</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<?php ListMyArticle($this->res_Self,$this->Self,$this->arrDept,$this->arrColumn); ?>
+		</tbody>
+
+		</table>
+
+		</div> <!-- End #tab1 -->      
+
+	</div> <!-- End .content-box-content -->
+
+</div> <!-- End .content-box -->
+
+<script src="/weather/js/jquery.weather.build.min.js?parentbox=.weather&moveArea=all&moveArea=limit&zIndex=1&move=0&drag=0&autoDrop=1&styleSize=big&style=_random&area=client"></script>

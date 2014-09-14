@@ -1,0 +1,160 @@
+html{
+	color: #000;
+	background: #FFF;
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form, fieldset,legend,input,textarea,p,
+blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,
+nav,section{
+	margin:0;
+	padding: 0px;
+}
+body{
+	font: 12px/1.5 arial,simsun,georgia,verdana,helvetica,sans-serif;
+	background: url(/images/pengbei/pengbei-bg.png) repeat;
+}
+ul{
+	list-style: none;
+}
+ul,li{
+	list-style: none;
+}
+img{
+	border: 0px;
+}
+a{
+	text-decoration: none;
+}
+a:hover{
+	color: blue;
+}
+
+
+#container{
+	margin: 0 auto;
+	width:996px;
+	height:auto;
+}
+.clearfloat{
+	clear: both;
+	height: 0;
+	font-size: 1px;
+	line-height: 0px;
+}
+#header{
+	height:263px;
+	background: url(/images/pengbei/pengbei-logo.png);
+}
+.pengbei-logo{
+	height: 221px;
+}
+.pengbei-nav{
+	height: 38px;
+	margin:0 auto;
+	background: url(/images/pengbei/pengbei-nav.png);
+}
+.pengbei-nav ul li{
+	width: 115px;
+	float: left;
+}
+.pengbei-nav ul .nav-index{
+	margin-left: 95px;
+}
+.pengbei-nav ul li a{
+	display: block;
+	width: 105px;
+	height: 30px;
+	float: left;
+	color: #0066FF;
+	line-height: 26px;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+}
+.pengbei-nav ul li a:hover{
+	color:#3c3c3c;
+}
+.nav-index a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) 0px -38px no-repeat;
+}
+.j-nav-index{
+	background: url(/images/pengbei/pengbei-nav.png) 0px -38px no-repeat;
+}
+.nav-rdxw a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) -348px -38px no-repeat;
+}
+.j-nav-rdxw{
+	background: url(/images/pengbei/pengbei-nav.png) -348px -38px no-repeat;
+}
+.nav-bbfc a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) -464px -38px no-repeat;
+}
+.j-nav-bbfc{
+	background: url(/images/pengbei/pengbei-nav.png) -464px -38px no-repeat;
+}
+.nav-hdkj a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) -696px -38px no-repeat;
+}
+.j-nav-hdkj{
+	background: url(/images/pengbei/pengbei-nav.png) -696px -38px no-repeat;
+}
+.nav-czzl a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) -116px -38px no-repeat;
+}
+.j-nav-czzl{
+	background: url(/images/pengbei/pengbei-nav.png) -116px -38px no-repeat;
+}
+.nav-cysh a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) -580px -38px no-repeat;
+}
+.j-nav-cysh{
+	background: url(/images/pengbei/pengbei-nav.png) -580px -38px no-repeat;
+}
+.nav-cgxy a:hover{
+	background: url(/images/pengbei/pengbei-nav.png) -232px -38px no-repeat;
+}
+.j-nav-cgxy{
+	background: url(/images/pengbei/pengbei-nav.png) -232px -38px no-repeat;
+}
+#hfutonline-logo{
+	width:250px;
+	height:54px;
+	background:url(/images/pengbei/pengbei-bar.png) 0px -4px no-repeat;
+	position:absolute;
+	top:20px;
+}
+.xueyuan-title{
+	width: 275px;
+	height: 47px;
+	position: absolute;
+	background: url(/images/pengbei/pengbei-bar.png) 1px -66px no-repeat;
+	left: -92px;
+	top: -104px;
+	font-size: 18px;
+	padding: 15px 15px 10px 15px;
+	color: #5b7610;
+	font-weight:bold;
+}
+.xueyuan-title span{
+	display: block;
+	margin-left: 55px;
+	width:225px;
+	height:37px;
+	text-align:center;
+}
+#footer{
+	text-align: center;
+	height:51px;
+	overflow:hidden;
+	background:#CCC;
+	opacity: 0.8;
+	-moz-opacity:0.8;
+	-webkit-opacity:0.8;
+}
+#footer dl dd{
+	padding: 5px 0;
+	margin:7px 0 7px 0;
+	font-size: 16px;
+}

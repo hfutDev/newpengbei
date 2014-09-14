@@ -1,0 +1,207 @@
+#main{
+	height: 958px;
+	background: #FFF;
+	position: relative;
+}
+.right-hand a{
+	z-index:1;
+	display: block;
+	width: 180px;
+	height: 160px;
+	position: fixed;
+	right: 0px;
+	bottom: 20px;
+	background: url(/images/pengbei/pengbei-bar.png) -304px 0px no-repeat;
+}
+.main-rightMain{
+	width: 769px;
+	height: 831px;
+	margin:0 auto;
+}
+.rightMain-main1{
+	height: 296px;
+	margin-bottom: 38px;
+}
+
+.rightMain-main2{
+	height: 493px;
+	/*border: 1px solid;*/
+}
+.main2-lanmu{
+	width: 339px;
+	float: left;
+	/*margin-right: 40px;*/
+	height: 164px;
+}
+.main2-lanmu-right{
+	padding-left: 88px;
+} 
+.lanmu-title h1{
+	font-size: 19.77px;
+	font-weight: bold;
+	color: #444444;
+}
+.lanmu-title h1 span{
+	display: inline-block;
+	margin-left: 190px;
+}
+.lanmu-title h1 span a{
+	font-size: 14px;
+	font-weight: normal;
+	font-family: '微软雅黑';
+}
+.lanmu-rdxw{
+	border-bottom: 3px solid #ff008a;
+}
+.lanmu-bbfc{
+	border-bottom: 3px solid #ff9d55;
+}
+.lanmu-hdkj{
+	border-bottom: 3px solid #ff8fee;
+}
+.lanmu-czzl{
+	border-bottom: 3px solid #c66b00;
+}
+.lanmu-cysh{
+	border-bottom: 3px solid #00e7ea;
+}
+.lanmu-cgxy{
+	border-bottom: 3px solid #00bf3f;
+}
+.lanmu-rdxw h1 span a{
+	color: #ff008a;
+}
+.lanmu-bbfc h1 span a{
+	color: #ff9d55;
+}
+.lanmu-hdkj h1 span a{
+	color: #ff8fee;
+}
+.lanmu-czzl h1 span a{
+	color: #c66b00;
+}
+.lanmu-cysh h1 span a{
+	color: #00e7ea;
+}
+.lanmu-cgxy h1 span a{
+	color: #00bf3f;
+}
+.lanmu-content{
+	margin:5px 0 0 0;
+}
+.lanmu-content img{
+	width: 106px;
+	height: 78px;
+	float: left;
+	margin-right: 8px;
+}
+.main2-lanmu ul li{
+	background: url(/images/pengbei/pengbei-bar.png) 0px -160px no-repeat;
+	padding-left: 15px;
+	font-size: 14px;
+	
+}
+.main2-lanmu ul li a{
+	color: #333333;
+	font-family: "微软雅黑";
+	/*font-weight: bold;*/
+}
+.rightMain-main3{
+	margin: 5px 0 0 0;
+	height: 122px;
+	background: url(/images/pengbei/pengbei-dept.jpg);
+}
+.xueyuanLink{
+	height: 122px;
+	margin-left: 115px;
+}
+.xueyuanLink li{
+	margin: 0 0 5px 0;
+}
+xueyuanLink li a:hover{
+	color:blue;
+}
+.one-link{
+	float:left;
+	margin-right:30px;
+	
+}
+.one-link li a{
+	font-size:13px;
+	color:#f3924b;
+}
+.one-link li a:hover{
+	color:#000;
+}
+.two-link{
+	float:left;
+	margin-right:30px;
+	
+}
+.two-link li a{
+	font-size:13px;
+	color:#ff33a1;
+}
+.two-link li a:hover{
+	color:#000;
+}
+.three-link{
+	float:left;
+	margin-right:30px;
+	
+}
+.three-link li a{
+	font-size:13px;
+	color:#f65bde;
+}
+.three-link li a:hover{
+	color:#000;
+}
+.four-link{
+	float:left;
+	margin-right:30px;
+	
+}
+.four-link li a{
+	font-size:13px;
+	color:#d18833;
+}
+.four-link li a:hover{
+	color:#000;
+}
+.five-link{
+	float:left;
+	margin-right:30px;
+}
+.five-link li a{
+	font-size:13px;
+	color:#33cb65;
+}
+.five-link li a:hover{
+	color:#000;
+}
+.six-link{
+	float:left;
+	
+}
+.six-link li a{
+	font-size:13px;
+	color:#1acccf;
+}
+.six-link li a:hover{
+	color:#000;
+}
+
+/* 默认幻灯片 */
+.FocusPic {zoom:1;position:relative; overflow:hidden}
+.FocusPic .content{overflow:hidden;position: relative;}
+.FocusPic .changeDiv a{position:absolute;top:0px;left:0px;display:none;}
+.FocusPic .title-bg,.FocusPic .title{background:none;position:absolute;left:0px; bottom:0px;width:530px; text-align:center;height:30px;line-height:30px;overflow:hidden}
+.FocusPic .title-bg{background:#000;filter:alpha(opacity=50);opacity:0.5;}
+.FocusPic .title a{display:block;color:#fff; font-size:14px;}
+.FocusPic .change{bottom:25px;height:20px;right:40px;*right:5px;_right:4px;position:absolute;text-align:right;z-index:100;}
+/*.FocusPic .change{bottom:34px;height:20px;right:172px;*right:5px;_right:4px;position:absolute;text-align:right;z-index:100;}*/
+.FocusPic .change i {background:rgba(102, 102, 102, 0.75);color:#FFF;cursor:pointer;font-family:Arial;font-size:12px;line-height:15px;margin-right:2px;padding:2px 6px; font-style:normal; height:15px;display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline;}
+.FocusPic .change i.cur {background:rgba(0, 194, 255, 0.55);}
+.FocusPic .change i.cur a {color:#FFFFFF;}
+.FocusPic .change a {color:#222;}

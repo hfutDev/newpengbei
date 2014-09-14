@@ -1,0 +1,207 @@
+<?php
+	$arrListrdxw = $this->arrListrdxw;
+	$arrListbbfc = $this->arrListbbfc;
+	$arrListhdkj = $this->arrListhdkj;
+	$arrListczzl = $this->arrListczzl;
+	$arrListcysh = $this->arrListcysh;
+	$arrListcgxy = $this->arrListcgxy;
+
+	// 计算中文字符串长度
+	function utf8_strlen($string = null) {
+		preg_match_all("/./us", $string, $match);
+		return count($match[0]);
+	}
+
+	function strRemoveBR($str) {
+		return preg_replace('/<br(\/)?(\s)*(\/)?>/i','',$str);
+	}
+
+	function utf8Substr($str, $from, $len) {
+		$str = strRemoveBR($str);
+		if (utf8_strlen($str)>$len-$from) {
+			$str = preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
+					'((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$len.'}).*#s','$1',$str);
+			$str.= "...";
+		}
+		return $str;
+	}
+
+	function maxlist($arrLength) {
+		$ListLength = 4;
+		return ($ListLength>$arrLength)?$arrLength:$ListLength;
+	}
+?>
+<div id="main">
+	<div class="right-hand">
+		<a href="http://www.weibo.com/u/2307523172" target="_blank" title="工大学子官方微博"></a>
+	</div>
+	<div class="main-rightMain">
+		<!--模块1:幻灯片-->
+		<div class="rightMain-main1">
+			<div class="FocusPic" id="flash1">
+				<div class="content" id="flash">
+					<div class="changeDiv">
+						<a title="主教学楼"><img src='/images/pengbei/banner/1.jpg' border='0' width='769' height='296' alt='主教学楼'></a>
+						<a title="东风广场"><img src='/images/pengbei/banner/2.jpg' border='0' width='769' height='296' alt='东风广场'></a>
+						<a title="宣城校区"><img src='/images/pengbei/banner/3.jpg' border='0' width='769' height='296' alt='宣城校区'></a>
+						<a title="斛兵塘"><img src='/images/pengbei/banner/4.jpg' border='0' width='769' height='296' alt='斛兵塘'></a>
+						<a title="灯光体育场"><img src='/images/pengbei/banner/5.jpg' border='0' width='769' height='296' alt='灯光体育场'></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--/模块1结束-->
+
+		<!--模块2:6个板块-->
+		<div class="rightMain-main2">
+			<div class="main2-lanmu">
+				<div class="lanmu-title lanmu-rdxw">
+					<h1>热点新闻<span><a href="/pengbei/list/column/rdxw">MORE&gt;&gt;</a></span></h1>
+				</div>
+				<div class="lanmu-content">
+					<ul>
+						<?php
+						$liNum = maxlist(count($arrListrdxw) - 1);
+						for ($i=0; $i <= $liNum; $i++) { ?>
+							<li><a href="/pengbei/article/id/<?=$arrListrdxw[$i]['ID']?>" title="<?=strRemoveBR($arrListrdxw[$i]['Title'])?>" target="_blank"><?=utf8Substr($arrListrdxw[$i]['Title'], 0, 21)?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+
+			<div class="main2-lanmu main2-lanmu-right">
+				<div class="lanmu-title lanmu-bbfc">
+					<h1>标兵风采<span><a href="/pengbei/list/column/bbfc">MORE&gt;&gt;</a></span></h1>
+				</div>
+				<div class="lanmu-content">
+					<ul>
+						<?php
+						$liNum = maxlist(count($arrListbbfc) - 1);
+						for ($i=0; $i <= $liNum; $i++) { ?>
+							<li><a href="/pengbei/article/id/<?=$arrListbbfc[$i]['ID']?>" title="<?=strRemoveBR($arrListbbfc[$i]['Title'])?>" target="_blank"><?=utf8Substr($arrListbbfc[$i]['Title'], 0, 21)?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+
+			<div class="main2-lanmu">
+				<div class="lanmu-title lanmu-hdkj">
+					<h1>互动空间<span><a href="/pengbei/list/column/hdkj">MORE&gt;&gt;</a></span></h1>
+				</div>
+				<div class="lanmu-content">
+					<ul>
+						<?php
+						$liNum = maxlist(count($arrListhdkj) - 1);
+						for ($i=0; $i <= $liNum; $i++) { ?>
+							<li><a href="/pengbei/article/id/<?=$arrListhdkj[$i]['ID']?>" title="<?=strRemoveBR($arrListhdkj[$i]['Title'])?>" target="_blank"><?=utf8Substr($arrListhdkj[$i]['Title'], 0, 21)?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+
+			<div class="main2-lanmu main2-lanmu-right">
+				<div class="lanmu-title lanmu-czzl">
+					<h1>成长之路<span><a href="/pengbei/list/column/czzl">MORE&gt;&gt;</a></span></h1>
+				</div>
+				<div class="lanmu-content">
+					<ul>
+						<?php
+						$liNum = maxlist(count($arrListczzl) - 1);
+						for ($i=0; $i <= $liNum; $i++) { ?>
+							<li><a href="/pengbei/article/id/<?=$arrListczzl[$i]['ID']?>" title="<?=strRemoveBR($arrListczzl[$i]['Title'])?>" target="_blank"><?=utf8Substr($arrListczzl[$i]['Title'], 0, 21)?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+
+			<div class="main2-lanmu">
+				<div class="lanmu-title lanmu-cysh">
+					<h1>畅游书海<span><a href="/pengbei/list/column/cysh">MORE&gt;&gt;</a></span></h1>
+				</div>
+				<div class="lanmu-content">
+					<ul>
+						<?php
+						$liNum = maxlist(count($arrListcysh) - 1);
+						for ($i=0; $i <= $liNum; $i++) { ?>
+							<li><a href="/pengbei/article/id/<?=$arrListcysh[$i]['ID']?>" title="<?=strRemoveBR($arrListcysh[$i]['Title'])?>" target="_blank"><?=utf8Substr($arrListcysh[$i]['Title'], 0, 21)?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+
+			<div class="main2-lanmu main2-lanmu-right">
+				<div class="lanmu-title lanmu-cgxy">
+					<h1>草根校园<span><a href="/pengbei/list/column/cgxy">MORE&gt;&gt;</a></span></h1>
+				</div>
+				<div class="lanmu-content">
+					<ul>
+						<?php
+						$liNum = maxlist(count($arrListcgxy) - 1);
+						for ($i=0; $i <= $liNum; $i++) { ?>
+							<li><a href="/pengbei/article/id/<?=$arrListcgxy[$i]['ID']?>" title="<?=strRemoveBR($arrListcgxy[$i]['Title'])?>" target="_blank"><?=utf8Substr($arrListcgxy[$i]['Title'], 0, 21)?></a></li>
+						<?php } ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--/模块2结束-->
+
+	</div>
+
+	<!--模块3:学院列表-->
+	<div class="rightMain-main3">
+		<div class="xueyuanLink">
+			<div class="one-link">
+				<li><a href="/pengbei/dept/id/som">管理学院</a></li>
+				<li><a href="/pengbei/dept/id/jj">经济学院</a></li>
+				<li><a href="/pengbei/dept/id/sx">数学学院</a></li>
+				<li><a href="/pengbei/dept/id/rj">软件学院</a></li>
+			</div>
+			<div class="two-link">
+				<li><a href="/pengbei/dept/id/yxgc">医学工程学院</a></li>
+				<li><a href="/pengbei/dept/id/hg">化学工程学院</a></li>
+				<li><a href="/pengbei/dept/id/wgy">外国语学院</a></li>
+			</div>
+			<div class="three-link">
+				<li><a href="/pengbei/dept/id/jt">交通运输工程学院</a></li>
+				<li><a href="/pengbei/dept/id/mks">马克思主义学院</a></li>
+				<li><a href="/pengbei/dept/id/jy">建筑与艺术学院</a></li>
+			</div>
+			<div class="four-link">
+				<li><a href="/pengbei/dept/id/jq">机械与汽车工程学院</a></li>
+				<li><a href="/pengbei/dept/id/ci">计算机与信息学院</a></li>
+				<li><a href="/pengbei/dept/id/ea">电气与自动化学院</a></li>
+			</div>
+			<div class="five-link">
+				<li><a href="/pengbei/dept/id/geos">资源与环境工程学院</a></li>
+				<li><a href="/pengbei/dept/id/mse">材料科学与工程学院</a></li>
+				<li><a href="/pengbei/dept/id/civil">土木与水利工程学院</a></li>
+			</div>
+			<div class="six-link">
+				<li><a href="/pengbei/dept/id/dw">电子科学与应用物理学院</a></li>
+				<li><a href="/pengbei/dept/id/yqkx">仪器科学与光电工程学院</a></li>
+				<li><a href="/pengbei/dept/id/sbfe">生物与食品工程学院</a></li>
+			</div>
+		</div>
+	</div>
+	<!--/模块3结束-->
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		new slide("#flash","cur",769,296,1);
+	})
+	//文本域字符输入和原始替换
+	function replaceText(textTagId,originalText){
+		$(textTagId).focus(function(){
+			var txt_value= $(this).val();
+			if(txt_value==originalText){$(this).val("");}
+		});
+		$(textTagId).blur(function(){
+			var txt_value = $(this).value;
+			if(txt_value==""){$(this).val(originalText);}
+		});
+	}
+	//图片幻灯片函数
+	function picPlayer(){}
+</script>

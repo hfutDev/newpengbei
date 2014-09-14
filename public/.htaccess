@@ -1,0 +1,12 @@
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ index.php [NC,L]
+RewriteRule  !\.(js|txt|ico|gif|jpg|png|css|swf|xml|mp3|htm|html)$ index.php
+<Files robots.txt>
+order allow,deny
+allow from all
+</Files>

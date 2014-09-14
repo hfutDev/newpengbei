@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* global  */
+ 
+#julying-weather-box{ position:absolute; top:5px; left:0; width:100%;}
+
+.julying-weather .weather-info{ font-family:\5fae\8f6f\96c5\9ed1; display:none; position:relative; text-align:left; visibility:visible; overflow:hidden; width:150px; padding:10px; background:#FFF; line-height:160%; visibility:visible; opacity:0.9; z-index:99999; border:1px solid #CCC;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;
+-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow: #CCC 0px 0px 5px;-moz-box-shadow: #CCC 0px 0px 5px;box-shadow: #CCC 0px 0px 5px;}
+.julying-weather .weather-info h2{ position:relative; width:auto; height:auto; text-align:left; padding:0; margin:0; font-size:16px; font-weight:700; color:#555; text-indent:0;visibility:visible; background: none;}
+.julying-weather .weather-info h2 span{ position:absolute; right:0; top:5px; visibility:visible; display:block; font-size:12px; font-weight:100; color:#666; display:block;}
+.julying-weather .weather-info .weather-show{ font-size:14px;}
+.julying-weather .weather{ margin:0 10px 0 0; font-size:14px;}
+.julying-weather .temp{ font-size:14px;}
+.julying-weather .weather-is-move{ cursor: move !important;}
+
+.julying-weather{ position:absolute; top:0; left:0; width:100%; z-index:0;}
+.julying-weather .sky{ top:0; left:0;position:absolute;  cursor: pointer;  _background:none;/* display: none;*/}
+.julying-weather .sky .drop{ position:absolute; top:0; left:0; cursor:auto; display: none;}
+.julying-weather .sky .drop i{ display:block; width:100%; height:100%;}
+.julying-weather .sky .child{ position: relative; left:0; top:0; }
+
+.julying-weather .sky-0{}
+.julying-weather .sky-1{ left:260px; top:10px;}
