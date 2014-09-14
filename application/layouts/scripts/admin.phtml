@@ -47,12 +47,14 @@
     }
     if (isset($ColumnCode)) {
       switch ($ColumnCode) {
-        case 'rdxw': $ClassListrdxw = " class=\"current\""; break;
-        case 'bbfc': $ClassListbbfc = " class=\"current\""; break;
-        case 'hdkj': $ClassListhdkj = " class=\"current\""; break;
-        case 'czzl': $ClassListczzl = " class=\"current\""; break;
-        case 'cysh': $ClassListcysh = " class=\"current\""; break;
-        case 'cgxy': $ClassListcgxy = " class=\"current\""; break;
+        case 'xw': $ClassListxw = " class=\"current\""; break;
+        case 'xy': $ClassListxy = " class=\"current\""; break;
+        case 'tx': $ClassListtx = " class=\"current\""; break;
+        case 'xs': $ClassListxs = " class=\"current\""; break;
+        case 'jy': $ClassListjy = " class=\"current\""; break;
+        case 'qg': $ClassListqg = " class=\"current\""; break;
+        case 'tz': $ClassListtz = " class=\"current\""; break;
+        case 'ky': $ClassListky = " class=\"current\""; break;
         default: break;
       }
     }
@@ -126,8 +128,8 @@
               内容发布
             </a>
             <ul>
-              <li><a href="#">发布公告</a></li>
               <li><a href="/admin/writearticle"<?=$ClassWriteArticle?>>发表文章</a></li>
+              <li><a href="/admin/writearticle"<?=$ClassWriteArticle?>>上传图片</a></li>
             </ul>
           </li>
         <?php } else { ?>
@@ -143,18 +145,18 @@
             <?php if ($_SESSION['user']['Type'] == 1) echo "内容管理"; else echo "文章管理"; ?>
           </a>
           <ul>
-            <?php if ($_SESSION['user']['Type'] == 1) echo
-            "<li><a href=\"#\">公告</a></li>"; ?>
             <?php
                 if(!empty($DeptCode)) $Dept = '/dept/'.$DeptCode;
                 else $Dept = null;
             ?>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/rdxw"<?=$ClassListrdxw?>>热点新闻</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/bbfc"<?=$ClassListbbfc?>>标兵风采</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/hdkj"<?=$ClassListhdkj?>>互动空间</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/czzl"<?=$ClassListczzl?>>成长之路</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/cysh"<?=$ClassListcysh?>>畅游书海</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/cgxy"<?=$ClassListcgxy?>>草根校园</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/xw"<?=$ClassListxw?>>新闻</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/xy"<?=$ClassListxy?>>学院</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/tx"<?=$ClassListtx?>>团学</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/xs"<?=$ClassListxs?>>学术</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/jy"<?=$ClassListjy?>>就业</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/qg"<?=$ClassListqg?>>勤工</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/tz"<?=$ClassListtz?>>通知</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/ky"<?=$ClassListky?>>考研</a></li>
           </ul>
         </li>
 
