@@ -1,0 +1,23 @@
+<div class="content-box">
+    <div class="content-box-header">
+        <h3 style="cursor: s-resize;">上传图片</h3>
+    </div>
+    <div class="content-box-content">
+    	<a class="btn" onclick="uploadClick()">选择图片</a>
+    	<form enctype="multipart/form-data" id="imageForm" action="/admin/imageupload/method/post" method="post">
+    		<input id="uploadinput" name="imageFile" type="file" onchange="updateImage(this)" accept="image/*" />
+    	</form>
+		<div id="preview">
+		    <img id="imghead" width="480" height="280" border="0" src='http://www.baidu.com/img/baidu_jgylogo3.gif'><!--无预览时的默认图像，自己弄一个-->
+		</div>
+		<a class="btn" onclick="uploadCheck()">上传图片</a>
+		<script type="text/javascript" src="/scripts/admin/imageuploadplugin.js"></script>
+    </div>
+</div>
+<div class="content-box">
+	<div class="content-box-header">
+        <h3 style="cursor: s-resize;">图片管理</h3>
+    </div>
+    <div class="content-box-content">
+    </div>
+</div>

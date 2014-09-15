@@ -29,11 +29,14 @@
       $ClassManagerUser = null; $ClassStatistics = null;
       $NeedUEditor = 0; $NeedDatePicker = 0;
       $ShowAddUser = 0; $ShowModifyPwd  = 0;
+      $NeedImageEditor = 0;
       $ShowPeriodListArticle = 0; $ShowPeriodStatistics = 0;
     if (isset($arrStr[2])) {
       switch ($arrStr[2]) {
         case 'writearticle': $ClassWrite   = " current"; $ClassWriteArticle = " class=\"current\"";
                              $NeedUEditor  = 1; $NeedDatePicker = 1; break;
+        case  'imageupload': $ClassWrite = " current"; $ClassImageUpload = " class=\"current\"";
+                             $NeedImageEditor = 1; break;
         case  'editarticle': $ClassWrite   = " current"; $ClassWriteArticle = " class=\"current\"";
                              $NeedUEditor  = 1; $NeedDatePicker = 1; break;
         case  'listarticle': $ClassList    = " current"; $ShowPeriodListArticle = 1;break;
@@ -129,7 +132,7 @@
             </a>
             <ul>
               <li><a href="/admin/writearticle"<?=$ClassWriteArticle?>>发表文章</a></li>
-              <li><a href="/admin/writearticle"<?=$ClassWriteArticle?>>上传图片</a></li>
+              <li><a href="/admin/imageupload"<?=$ClassImageUpload?>>上传图片</a></li>
             </ul>
           </li>
         <?php } else { ?>

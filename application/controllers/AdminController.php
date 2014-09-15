@@ -263,6 +263,44 @@ class AdminController extends Zend_Controller_Action
 		}
 	}
 
+	/* 上传图片页面 */
+	public function imageuploadAction(){
+		$method = $this->_request->getParam("method");
+		if($method == "post"){
+			//实例化文件上传类 
+			$upload = new Zend_File_Transfer();
+			$upload->addValidator('Size', false, 5 * 1024 * 1024);
+			$upload->addValidator('Extension', false, 'jpg,gif,png');
+
+			if (!$upload->isValid()) {
+			    echo "<script>alert('格式不符或文件过大，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			//获取上传的文件表单，可以有多项
+			$fileInfo = $upload->getFileInfo();
+			$parseImg = new Application_Model_Admin_Admin();
+			$filetmp = $parseImg->resize_image($fileInfo['imageFile']['name'], $fileInfo['imageFile']['tmp_name'], '480', '280');
+			imagedestroy($fileInfo['imageFile']['tmp_name']);
+			//获取后缀名，这里imageFile为上传表单file控件的name
+			$ext = explode(".",$fileInfo['imageFile']['name'])[1];
+			//定义生成目录
+			$dir = './upload' . date('/Y/m/');
+			//文件重新命名
+			do {
+			    $filename = date('His') . rand(100000, 999999) . '.' . $ext;
+			} while (file_exists($dir . $filename));
+			 
+			//如果目录不存在则创建目录
+			if (!file_exists($dir)) {
+				mkdir($dir, 0, true);
+			}
+			imagejpeg($filetmp,$dir.'/'.$filename,100);
+			imagedestroy($filetmp);
+			
+			echo "<script>alert('上传成功！');location.href = '/admin/imageupload';</script>";
+		}
+	}
+
 	/* 文章编辑修正页面 */
 	public function editarticleAction()
 	{

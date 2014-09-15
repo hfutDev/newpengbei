@@ -530,6 +530,9 @@ form input[type="radio"] {
                 background: none;
 				border: 0;
                 }
+#uploadinput{
+        display: none;
+}
 
 /*************** Notifications ***************/
 
