@@ -30,3 +30,8 @@ function uploadCheck() {
 		alert('亲，还没有选择图片或者上传文件有错哦~')
 	}
 }
+function uploadCancel(){
+	checkPass = false;
+	val('imageForm').reset();
+	val('imghead').src = '/images/admin/upload-mornal.jpg';
+}
