@@ -232,6 +232,7 @@ class Application_Model_Admin_Admin
 	    $im2 = imagecreatetruecolor($xmax, $ymax);
 	    imagecopyresized($im2, $im, 0, 0, 0, 0, $xmax, $ymax, $x, $y);
 	    imagedestroy($tmpname);
+	    
 	    return $im2;
 	}
 
