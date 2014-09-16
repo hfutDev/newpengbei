@@ -212,7 +212,10 @@ class Application_Model_Admin_Admin
 		
 		return $newimgarr;
 	}
-	
+
+	/**
+	* 对图片进行缩放
+	*/
 	function resize_image($filename, $tmpname, $xmax, $ymax)
 	{	
 	    $ext = explode(".", $filename);

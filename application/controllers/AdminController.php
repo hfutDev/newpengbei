@@ -265,8 +265,10 @@ class AdminController extends Zend_Controller_Action
 
 	/* 上传图片页面 */
 	public function imageuploadAction(){
+		$ArticleMapper = new Application_Model_ImageinfoMapper();
 		$method = $this->_request->getParam("method");
 		if($method == "post"){
+			$deptid = $this->_request->getParam("deptid");
 			//实例化文件上传类 
 			$upload = new Zend_File_Transfer();
 			$upload->addValidator('Size', false, 5 * 1024 * 1024);
@@ -294,10 +296,42 @@ class AdminController extends Zend_Controller_Action
 			if (!file_exists($dir)) {
 				mkdir($dir, 0, true);
 			}
+			//将图片信息插入数据库
+			
+			$i = $ArticleMapper->uploadImageInfo($filename, $_SESSION['user']['RealName'], $deptid);
+			if(!isset($i)){
+				echo "<script>alert('图片信息上传失败，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			//将图片正式写入
 			imagejpeg($filetmp,$dir.'/'.$filename,100);
 			imagedestroy($filetmp);
 			
 			echo "<script>alert('上传成功！');location.href = '/admin/imageupload';</script>";
+		} else {
+			//加载列表
+			$DeptMapper = new Application_Model_DepartmentMapper();
+			$arr = $DeptMapper->findAllDept();
+			$this->view->arrDept = $arr;
+			$this->view->imageArr = $ArticleMapper->selectImageInfo($_SESSION['user']['RealName']);
+		}
+
+	}
+
+	public function imageajaxAction(){
+		$method = $this->_request->getParam("method");
+		if($method == "del"){
+			$this->_helper->layout()->disableLayout();
+			$imageName = $this->_request->getParam("name");
+			$time = $this->_request->getParam("time");
+			$imageUrl = $dir = './upload'.$time.$imageName;
+			$ImageinfoMapper = new Application_Model_ImageinfoMapper();
+			$i = $ImageinfoMapper->delImageInfo($imageName);
+			if(!isset($i)){
+				echo "<script>alert('图片信息删除失败，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			echo unlink($imageUrl);
 		}
 	}
 
