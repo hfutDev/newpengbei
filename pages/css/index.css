@@ -180,8 +180,6 @@
 	*+top: 0px;
 }
 
-
-
 .arrow{
 	position: absolute;
 	cursor: pointer;
@@ -196,6 +194,21 @@
 #next{
 	background: url(../img/next.png);
 	right: 10px;
+}
+.photo-down,.photo-up{
+	width: 630px;
+	height: 338px;
+	position: absolute;
+	top: -338px;
+}
+.photo-ctrl{
+	width: 26px;
+	height: 14px;
+	cursor: pointer;
+	background: url(../img/down.png);
+	position: absolute;
+	right: 20px;
+	top: 10px;
 }
 
 

@@ -32,7 +32,7 @@ $(document).ready(function (){
 
     //页面load后ajax加载列表
     $.ajax({
-            url: "http://localhost/xuezizixun/json/url-list-4.json",
+            url: "../pages/json/url-list-4.json",
             dataType: "json",
             success: function (data){
                 $('.xinwen>div>.title-list').empty();
@@ -48,7 +48,7 @@ $(document).ready(function (){
             }
     });
     $.ajax({
-            url: "http://localhost/xuezizixun/json/url-list-0.json",
+            url: "../pages/json/url-list-0.json",
             dataType: "json",
             success: function (data){
                 $('.zixun>div>.title-list').empty();
@@ -93,7 +93,7 @@ $(document).ready(function (){
             var thisCkick = $(this);
 
             $.ajax({
-                    url: "http://localhost/xuezizixun/json/url-list-" + index + ".json",
+                    url: "../pages/json/url-list-" + index + ".json",
                     dataType: "json",
                     success: function (data){
                         thisCkick.parent().parent().next().empty();
@@ -108,6 +108,18 @@ $(document).ready(function (){
                         console.log('Ajax Error!');
                     }
             });
+        });
+    });
+
+    //图片下拉
+    $('.photo-ctrl').click(function () {
+        $('.photo-down').animate({"top":"0px"},function () {
+            $('.photo-ctrl').css("background","url(../pages/img/up.png)");
+            $('.photo-down').removeClass("photo-down").addClass("photo-up");
+        });
+        $('.photo-up').animate({"top":"-338px"},function () {
+            $('.photo-ctrl').css("background","url(../pages/img/down.png)");
+            $('.photo-up').removeClass("photo-up").addClass("photo-down");
         });
     });
 });
