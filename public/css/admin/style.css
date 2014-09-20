@@ -530,6 +530,19 @@ form input[type="radio"] {
                 background: none;
 				border: 0;
                 }
+#uploadinput{
+        display: none;
+}
+#preview{
+        float: left;
+}
+.upload-btn-box{
+        float: left;
+}
+.upload-btn-box>p>.btn{
+        padding: 14px 7px 14px 7px !important;
+        margin-right: 10px;
+}
 
 /*************** Notifications ***************/
 
