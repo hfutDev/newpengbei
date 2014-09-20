@@ -177,6 +177,7 @@
 .list>div>ul.title-list>li>div>span.date{
 	position: relative;
 	top: -5px;
+	*+top: 0px;
 }
 
 
