@@ -83,7 +83,7 @@
 	width: 870px;
 	height: 440px;
 	margin-left: -340px;
-	top: 180px;
+	top: 160px;
 	z-index: 4;
 	background: url(../img/macbook-air.png) no-repeat 50% 50%;
 }
@@ -177,6 +177,7 @@
 .list>div>ul.title-list>li>div>span.date{
 	position: relative;
 	top: -5px;
+	*+top: 0px;
 }
 
 
