@@ -1,5 +1,6 @@
 *{
 	font-family: "微软雅黑";
+	color: #fff;
 }
 #header{
 	width: 100%;
@@ -63,28 +64,28 @@
 
 
 #content{
-	height: 500px;
+	height: 420px;
 	width: 100%;
-	padding-top: 290px;
+	padding-top: 250px;
 	position: relative;
 	background-color: #2dbdba;
 }
 .background{
 	position: absolute;
 	height: 341px;
+	width: 100%;
 	left: 50%;
 	margin-left: -50%;
-	width: 100%;
-	height: 341px;
 	opacity: 0;
 	filter:alpha(opacity=0);
 }
 .header-phone{
-	width: 764px;
-	height: 371px;
-	margin-left: -280px;
+	width: 870px;
+	height: 440px;
+	margin-left: -340px;
+	top: 180px;
 	z-index: 4;
-	background: url(../img/header-phone.png) no-repeat 50% 50%;
+	background: url(../img/macbook-air.png) no-repeat 50% 50%;
 }
 .background-1{
 	z-index: 3;
@@ -100,6 +101,100 @@
 	margin-left: -60%;
 	z-index: 1;
 	background: url(../img/background-layer-3.png) no-repeat 50% 50%;
+}
+
+#new-content{
+	position: absolute;
+	width: 630px;
+	height: 338px;
+	top: 39px;
+	left: 108px;
+	overflow: hidden;
+}
+#ul{
+	width: 1890px;
+	height: 338px;
+	position: absolute;
+	left: -630px;
+}
+#ul>li{
+	float: left;
+}
+#ul>li,#ul>li>div{
+	width: 630px;
+	height: 338px;	
+}
+.list>div>ul{
+	float: left;
+
+}
+
+.list>div>ul.left-list{
+	margin-left: 62px;
+}
+.list>div>ul.left-list>h1{
+	font-size: 22px;
+	font-weight: 100;
+}
+.list>div>ul.left-list>li{
+	width: 54px;
+	height: 28px;
+	padding-left: 12px;
+	margin: 5px 0;
+}
+.list>div>ul.left-list>.list-h1{
+	padding-left: 6px;
+	margin: 16px 0 6px 0;
+}
+.list>div>ul.left-list>li>a{
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 28px;
+	color: #a6b7b8;
+}
+.list>div>ul.left-list>li.active{
+	background: url(../img/left-list.png);
+}
+
+.list>div>ul.title-list{
+	margin: 52px 0 0 26px;
+}
+.list>div>ul.title-list>li>div{
+	
+}
+.list>div>ul.title-list>li>div>span>a{
+	font-size: 14px;
+	line-height: 20px;
+	color: #fff;
+	letter-spacing: 1px;
+	width: 330px;
+	display: inline-block;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.list>div>ul.title-list>li>div>span.date{
+	position: relative;
+	top: -5px;
+}
+
+
+
+.arrow{
+	position: absolute;
+	cursor: pointer;
+	width: 14px;
+	height: 26px;
+	top: 156px;
+}
+#prev{
+	background: url(../img/prev.png);
+	left: 10px;
+}
+#next{
+	background: url(../img/next.png);
+	right: 10px;
 }
 
 
@@ -132,5 +227,4 @@
 #footer>p{
 	line-height: 68px;
 	font-size: 14px;
-	color: #fff;
 }
