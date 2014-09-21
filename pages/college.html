@@ -7,29 +7,25 @@
     <link rel="icon" type="image/x-icon" href="img/favicon.ico">
     <link rel="stylesheet" type="text/css" href="http://book.hfutonline.net/css/reset.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/basic.css">
     <style>
     .rung{position:absolute;top:95px;width:100%;height:16px;background-color:#2eb0ad;}
     .rung2{top:123px;}
     #college{background:#2a9b99;width:300px;height:70px;position:absolute;top:82px;left:50%;margin-left:-150px;text-align:center;}
     #college p{font-size:24px;line-height:68px;}
+    #header{height:70px;}
+    #nav,.background{opacity:1;filter:alpha(opacity=100);}
+    .background{margin-left:-50%;}
+    .header-phone{margin-left:-435px;}
     </style>
 </head>
 <body>
 	<div id="header">
 		<div id="nav">
 			<h1>学子资讯网</h1>
-			<a id="xinwen">新闻</a>
-			<a id="zixun">资讯</a>
+			<a href="article-list.html" target="_blank">新闻</a>
+			<a href="article-list.html" target="_blank">资讯</a>
 			<img src="img/gongda.png">
-		</div>
-		<div id="loading">
-			<img src="img/loading.gif">
-			<br/>
-			<p class="loading-char">学</p>
-			<p class="loading-char">子</p>
-			<p class="loading-char">资</p>
-			<p class="loading-char">讯</p>
-			<p class="loading-char">网</p>
 		</div>
 	</div>
 
@@ -106,12 +102,12 @@
 		</ul>
 	</div>
 
-	<div id="footer">
+	<div class="footer">
 		<p>CopyRight©2006-2014 合肥工业大学党委学工部（处）大学生发展网络教育中心 All rights reserved.</p>
 	</div>
 
 <!-- javascript -->
 <script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="js/index.js"></script>
+<script src="js/college.js"></script>
 </body>
 </html>

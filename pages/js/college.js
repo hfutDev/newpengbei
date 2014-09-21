@@ -1,38 +1,7 @@
 $(document).ready(function (){
-    //页面加载完成立即执行的动画
-	var i = 0;
-	var interval;
-    //配置动画的参数
-    var lef = ["-435px","-55%","-45%","-50%"];
-    var lef2 = ["-435px","-50%","-50%","-50%"];
-    function run() {
-    	timer = setInterval(move,250);
-    }
-    //可以理解为开机(加载)动画
-    function move() {
-    	$('.loading-char').eq(i).css({"color":"#fff","text-shadow":"0px 0px 10px #fff, 0px 0px 20px #fff, 0px 0px 40px #9dd"});
-    	if (i==5) {
-    		clearTimeout(timer);
-            $('#loading').css("display","none");
-    		$('#nav').animate({"opacity":"1"},500);
-    		$('#header').animate({height:"70px"},500,function () {
-    			$('.header-phone').animate({"margin-left":lef2[0],"opacity":"1"},250,function () {
-    				$('.background-3').animate({"margin-left":lef2[3],"opacity":"1"},250,function () {
-                        $('.background').each(function(i){
-                            $(this).animate({"margin-left":lef[i],"opacity":"1"},250);
-                            $(this).animate({"margin-left":lef2[i]},250);
-                        });
-    				});
-    			});
-    		});
-    	};
-    	i++;
-    }
-    run();
-
     //页面load后ajax加载列表
     $.ajax({
-            url: "../pages/json/url-list-5.json",
+            url: "../pages/json/url-list-4.json",
             dataType: "json",
             success: function (data){
                 $('.xinwen>div>.title-list').empty();
