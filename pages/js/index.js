@@ -84,6 +84,21 @@ $(document).ready(function (){
     });
 
 
+    //加载页面时启动定时器
+    function next(){
+        $('#next').click();
+    }
+
+    var timer2=setInterval(next, 5000);
+    
+    $('#ul').mouseover(function(){
+        clearInterval(timer2);
+    });
+    $('#ul').mouseout(function(){
+        timer2=setInterval(next, 3500);
+    });
+
+
     //左侧栏目列表点击
     $(".left-list-link").each(function(index){
         $(this).click(function () {
@@ -121,5 +136,20 @@ $(document).ready(function (){
             $('.photo-ctrl').css("background","url(../pages/img/down.png)");
             $('.photo-up').removeClass("photo-up").addClass("photo-down");
         });
+    });
+
+    //新闻资讯点击
+    function findMiddle (str) {
+        clearInterval(timer2);
+        if (!$('#ul>li:eq(1)').hasClass(str)) {
+            $('#next').click();
+        }
+        timer2=setInterval(next, 3500);
+    }
+    $('#xinwen').click(function () {
+        findMiddle('xinwen');
+    });
+    $('#zixun').click(function () {
+        findMiddle('zixun');
     });
 });
