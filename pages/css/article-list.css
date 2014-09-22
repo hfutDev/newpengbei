@@ -96,7 +96,7 @@ body{
 	padding-left: 40px;
 	right: 0;
 	background: url(../img/sprites.png);
-	background-position: 0 0; width: 810px; height: 165px;
+	background-position: 0 0;
 }
 .move>span{
 	display: inline-block;
