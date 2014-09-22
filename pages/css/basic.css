@@ -16,17 +16,18 @@
 	position: relative;
 	color: #cfcfcf;
 }
-#nav>h1{
+#index{
 	font-size: 36px;
 	line-height: 36px;
 	position: relative;
 	top: 27px;
 	margin-right: 50px;
+	text-decoration: none;
 	display: inline;
 	font-weight: 100;
 	color: #fff;
 }
-#nav>a{
+.xinzi{
 	color: #cfcfcf;
 	font-size: 18px;
 	display: inline;
@@ -36,10 +37,15 @@
 	top: 30px;
 	margin-left: 28px;
 }
-#nav>img{
+.xinzi:hover{
+	color: #fff;
+}
+.img{
 	width: 194px;
 	height: 50px;
 	position: absolute;
+	background: url(../img/sprites.png);
+	background-position: 0 -279px; width: 194px; height: 50px;
 	right: 0;
 	bottom: 0;
 }

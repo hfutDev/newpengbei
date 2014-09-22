@@ -87,14 +87,16 @@ body{
 	height: 14px;
 	top: 23px;
 	left: 118px;
-	background: url(../img/circle.png);
+	background: url(../img/sprites.png);
+	background-position: 0 -215px; width: 14px; height: 14px;
 }
 #move ul li div.bubble{
 	width: 770px;
 	height: 165px;
 	padding-left: 40px;
 	right: 0;
-	background: url(../img/bubble.png);
+	background: url(../img/sprites.png);
+	background-position: 0 0; width: 810px; height: 165px;
 }
 .move>span{
 	display: inline-block;

@@ -126,15 +126,27 @@ $(document).ready(function (){
         });
     });
 
-    //图片下拉
-    $('.photo-ctrl').click(function () {
-        $('.photo-down').animate({"top":"0px"},function () {
-            $('.photo-ctrl').css("background","url(../pages/img/up.png)");
-            $('.photo-down').removeClass("photo-down").addClass("photo-up");
-        });
-        $('.photo-up').animate({"top":"-338px"},function () {
-            $('.photo-ctrl').css("background","url(../pages/img/down.png)");
-            $('.photo-up').removeClass("photo-up").addClass("photo-down");
+    //图片
+    $.ajax({
+            url: "../pages/json/photo.json",
+            dataType: "json",
+            success: function (data){
+                $('.photo-ctrl li').each(function(index){
+                    $(this).click(function () {
+                        clearInterval(timer2);
+                        $('.photo').attr("src",data[index].url).animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
+                    })
+                });
+            },
+            error: function (){
+                console.log('Ajax Error!');
+            }
+    });
+
+    $('.photo').click(function () {
+        timer2=setInterval(next, 3500);
+        $(this).animate({"opacity":"0"},250,function () {
+            $(this).css("display","none");
         });
     });
 });
