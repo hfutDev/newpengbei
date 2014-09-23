@@ -10,6 +10,7 @@ class PengbeiController extends Zend_Controller_Action
 
 	public function indexAction()
 	{
+
 		$this->view->PageType = "index";
 
 		$ArticleMapper = new Application_Model_ArticleMapper();
@@ -28,6 +29,28 @@ class PengbeiController extends Zend_Controller_Action
 		$this->view->arrListcgxy = $arrListcgxy;
 	}
 
+	public function indexdataAction(){
+		$this->_helper->layout()->disableLayout();
+		$this->view->PageType = "index";
+
+		$ArticleMapper = new Application_Model_ArticleMapper();
+		$arrListrdxw = $ArticleMapper->findArticleForList('publish',-1,1,-1);
+		$arrListbbfc = $ArticleMapper->findArticleForList('publish',-1,2,-1);
+		$arrListhdkj = $ArticleMapper->findArticleForList('publish',-1,3,-1);
+		$arrListczzl = $ArticleMapper->findArticleForList('publish',-1,4,-1);
+		$arrListcysh = $ArticleMapper->findArticleForList('publish',-1,5,-1);
+		$arrListcgxy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
+
+		$arrListAjax = array(
+		'rdxw' =>	$arrListrdxw,
+		'bbfc' =>	$arrListbbfc,
+		'hdkj' =>	$arrListhdkj,
+		'czzl' =>	$arrListczzl,
+		'cysh' =>	$arrListcysh,
+		'cgxy' =>	$arrListcgxy
+		);
+		echo json_encode($arrListAjax);
+	}
 	public function deptAction()
 	{
 		$this->view->PageType = "dept";
