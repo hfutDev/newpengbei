@@ -188,8 +188,8 @@
 					case 'zx': $where .= $ab->quoteInto(' And ColumnID in (4,5,6,7,8)'); break;
 				}
 			}
-			// else if ($Column != -1)
-			// 	$where .= $ab->quoteInto(' And ColumnID=?',$Column);
+			else if ($Column != -1)
+				$where .= $ab->quoteInto(' And ColumnID=?',$Column);
 			if ($UserID != -1)
 				$where .= $ab->quoteInto(' And WriterID=?',$UserID);
 
