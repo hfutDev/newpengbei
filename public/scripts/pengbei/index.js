@@ -1,15 +1,4 @@
 $(document).ready(function (){
-
-    //设置高度
-    var windowHeight = $(window).height();
-    var documentHeight = $(document).height();
-    $('#header').css("height",windowHeight);
-    var windowHeight = $(window).height();
-    if(windowHeight>documentHeight){
-        var h = $('#header').attr("height")
-    }
-    console.log($('#content').css("height"));
-
     //页面加载完成立即执行的动画
 	var i = 0;
 	var interval;
@@ -42,7 +31,7 @@ $(document).ready(function (){
     run();
 
     //页面load后ajax加载列表
-    var Json = $.ajax({url:"/pengbei/indexdata",async:false});
+    var Json = $.ajax({url:"http://newpengbei.zhujun.net/pengbei/indexdata",async:false});
     var jsonData = JSON.parse(Json.responseText);
 
     $('.xinwen>div>.title-list').empty();
@@ -152,8 +141,10 @@ $(document).ready(function (){
     $('.photo-ctrl li').each(function(index){
         $(this).click(function () {
             clearInterval(timer2);
-            if(parseInt($('.photo').attr("src").substring(52,53)) != (index+1)){
-                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"1"},250).css("display","block");
+            console.log($('.photo').attr("src").substring(52,53));
+            console.log($('.photo').attr("src").substring(52,53));
+            if(parseInt($('.photo').attr("src").substring(52,53)) == index+1){
+                $('.photo').attr("src","http://pengbei.hfutonline.net/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
             } else{
                 $('.photo').click();
             }
@@ -164,7 +155,6 @@ $(document).ready(function (){
         timer2=setInterval(next, 3500);
         $(this).animate({"opacity":"0"},250,function () {
             $(this).css("display","none");
-            $('.photo').attr("src","/images/pengbei/banner/0.jpg");
         });
     });
 });
