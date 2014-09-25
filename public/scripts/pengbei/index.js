@@ -37,7 +37,7 @@ $(document).ready(function (){
     run();
 
     //页面load后ajax加载列表
-    var Json = $.ajax({url:"http://newpengbei.zhujun.net/pengbei/indexdata",async:false});
+    var Json = $.ajax({url:"/pengbei/indexdata",async:false});
     var jsonData = JSON.parse(Json.responseText);
 
     $('.xinwen>div>.title-list').empty();
