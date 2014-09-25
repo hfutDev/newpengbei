@@ -31,37 +31,25 @@ $(document).ready(function (){
     run();
 
     //页面load后ajax加载列表
-    $.ajax({
-            url: "../pages/json/url-list-5.json",
-            dataType: "json",
-            success: function (data){
-                $('.xinwen>div>.title-list').empty();
-                $.each(data,function (index,item){
-                    if (index<10) {
-                        var newDOM = '<li><div><span><a href="' + item.url + '" target="_blank">' + item.title + '</a></span><span class="date">&nbsp;' + item.date + '</span></div></li>'
-                        $('.xinwen>div>.title-list').append(newDOM);
-                    };
-                });
-            },
-            error: function (){
-                console.log('Ajax Error!');
-            }
+    var Json = $.ajax({url:"http://newpengbei.zhujun.net/pengbei/indexdata",async:false});
+    var jsonData = JSON.parse(Json.responseText);
+
+    $('.xinwen>div>.title-list').empty();
+    $.each(jsonData.yw,function (index,item){
+        if (index<10) {
+            var date = new Date(parseFloat(item.PublishTime));
+            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + date.getMonth()+1 + '-' + date.getDate() + '</span></div></li>'
+            $('.xinwen>div>.title-list').append(newDOM);
+        };
     });
-    $.ajax({
-            url: "../pages/json/url-list-0.json",
-            dataType: "json",
-            success: function (data){
-                $('.zixun>div>.title-list').empty();
-                $.each(data,function (index,item){
-                    if (index<10) {
-                        var newDOM = '<li><div><span><a href="' + item.url + '" target="_blank">' + item.title + '</a></span><span class="date">&nbsp;' + item.date + '</span></div></li>'
-                        $('.zixun>div>.title-list').append(newDOM);
-                    };
-                });
-            },
-            error: function (){
-                console.log('Ajax Error!');
-            }
+
+    $('.zixun>div>.title-list').empty();
+    $.each(jsonData.tz,function (index,item){
+        if (index<10) {
+            var date = new Date(parseFloat(item.PublishTime));
+            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + date.getMonth()+1 + '-' + date.getDate() + '</span></div></li>'
+            $('.zixun>div>.title-list').append(newDOM);
+        };
     });
 
     //Macbook Air内容切换
@@ -107,46 +95,65 @@ $(document).ready(function (){
             $(this).parent().prevAll().removeClass("active");
             var thisCkick = $(this);
 
-            $.ajax({
-                    url: "../pages/json/url-list-" + index + ".json",
-                    dataType: "json",
-                    success: function (data){
-                        thisCkick.parent().parent().next().empty();
-                        $.each(data,function (index,item){
-                            if (index<10) {
-                                var newDOM = '<li><div><span><a href="' + item.url + '" target="_blank">' + item.title + '</a></span><span class="date">&nbsp;' + item.date + '</span></div></li>'
-                                thisCkick.parent().parent().next().append(newDOM);
-                            };
-                        });
-                    },
-                    error: function (){
-                        console.log('Ajax Error!');
-                    }
+            thisCkick.parent().parent().next().empty();
+
+            var jsondata;
+            switch(thisCkick.html()){
+                case "通知":
+                    jsondata = jsonData.tz;
+                    break;
+                case "学术":
+                    jsondata = jsonData.xs;
+                    break;
+                case "就业":
+                    jsondata = jsonData.jy;
+                    break;
+                case "考研":
+                    jsondata = jsonData.ky;
+                    break;
+                case "勤工":
+                    jsondata = jsonData.qg;
+                    break;
+                case "要闻":
+                    jsondata = jsonData.yw;
+                    break;
+                case "学院":
+                    jsondata = jsonData.xy;
+                    break;
+                case "团学":
+                    jsondata = jsonData.tx;
+                    break;
+                default:
+                    console.log('Error!');
+            }
+
+            $.each(jsondata,function (index,item){
+                if (index<10) {
+                    var date = new Date(parseFloat(item.PublishTime));
+                    var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + date.getMonth()+1 + '-' + date.getDate() + '</span></div></li>'
+                    thisCkick.parent().parent().next().append(newDOM);
+                };
             });
         });
     });
 
     //图片
-    $.ajax({
-            url: "../pages/json/photo.json",
-            dataType: "json",
-            success: function (data){
-                $('.photo-ctrl li').each(function(index){
-                    $(this).click(function () {
-                        clearInterval(timer2);
-                        $('.photo').attr("src",data[index].url).animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
-                    })
-                });
-            },
-            error: function (){
-                console.log('Ajax Error!');
+    $('.photo-ctrl li').each(function(index){
+        $(this).click(function () {
+            clearInterval(timer2);
+            if(parseInt($('.photo').attr("src").substring(52,53)) != (index+1)){
+                $('.photo').attr("src","http://pengbei.hfutonline.net/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"1"},250).css("display","block");
+            } else{
+                $('.photo').click();
             }
+        })
     });
 
     $('.photo').click(function () {
         timer2=setInterval(next, 3500);
         $(this).animate({"opacity":"0"},250,function () {
             $(this).css("display","none");
+            $('.photo').attr("src","http://pengbei.hfutonline.net/images/pengbei/banner/0.jpg");
         });
     });
 });

@@ -1,207 +1,218 @@
-#main{
-	height: 958px;
-	background: #FFF;
-	position: relative;
+*{
+	color: #fff;
 }
-.right-hand a{
-	z-index:1;
+html,body{
+	height: 100%;
+}
+#nav{
+	opacity: 0;
+	filter:alpha(opacity=0);
+}
+#loading{
 	display: block;
-	width: 180px;
-	height: 160px;
-	position: fixed;
-	right: 0px;
-	bottom: 20px;
-	background: url(/images/pengbei/pengbei-bar.png) -304px 0px no-repeat;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -100px;
+	margin-top: -50px;
+	height: 100px;
+	width: 200px;
+	text-align: center;
 }
-.main-rightMain{
-	width: 769px;
-	height: 831px;
-	margin:0 auto;
-}
-.rightMain-main1{
-	height: 296px;
-	margin-bottom: 38px;
+.loading-char{
+	color: #cfcfcf;
+	font-size: 20px;
+	display: inline;
 }
 
-.rightMain-main2{
-	height: 493px;
-	/*border: 1px solid;*/
+#content{
+	height: 80%;
+	min-height: 430px;
+	width: 100%;
+	display: block;
+	line-height: 100%;
+	padding-bottom: 220px;
+	position: relative;
+	background-color: #2dbdba;
 }
-.main2-lanmu{
-	width: 339px;
+.background{
+	position: absolute;
+	height: 341px;
+	width: 100%;
+	left: 50%;
+	margin-left: -50%;
+	opacity: 0;
+	filter:alpha(opacity=0);
+}
+.header-phone{
+	width: 870px;
+	height: 430px;
+	margin-left: -340px;
+	top: 160px;
+	z-index: 4;
+	background: url(../../images/pengbei/sprites.png);
+	background-position: 0 -457px; width: 870px; height: 430px;
+}
+.background-1{
+	z-index: 3;
+	margin-left: -40%;
+	top: 180px;
+	background: url(../../images/pengbei/background-layer-1.png) no-repeat 50% 50%;
+}
+.background-2{
+	z-index: 2;
+	margin-left: -60%;
+	top: 180px;
+	background: url(../../images/pengbei/background-layer-2.png) no-repeat 50% 50%;
+}
+.background-3{
+	margin-left: -60%;
+	top: 180px;
+	z-index: 1;
+	background: url(../../images/pengbei/background-layer-3.png) no-repeat 50% 50%;
+}
+
+#new-content{
+	position: absolute;
+	width: 630px;
+	height: 338px;
+	top: 34px;
+	left: 108px;
+	overflow: hidden;
+}
+#ul{
+	width: 1890px;
+	height: 322px;
+	padding-top:16px;
+	position: absolute;
+	left: -630px;
+}
+#ul>li{
 	float: left;
-	/*margin-right: 40px;*/
-	height: 164px;
 }
-.main2-lanmu-right{
-	padding-left: 88px;
-} 
-.lanmu-title h1{
-	font-size: 19.77px;
-	font-weight: bold;
-	color: #444444;
+#ul>li,#ul>li>div{
+	width: 630px;
+	height: 338px;	
 }
-.lanmu-title h1 span{
+.list>div>ul{
+	float: left;
+
+}
+
+.list>div>ul.left-list{
+	margin-left: 62px;
+}
+.list>div>ul.left-list>h1{
+	font-size: 22px;
+	font-weight: 100;
+}
+.list>div>ul.left-list>li{
+	width: 54px;
+	height: 28px;
+	padding-left: 12px;
+	margin: 5px 0;
+}
+.list>div>ul.left-list>.list-h1{
+	padding-left: 6px;
+	padding-bottom: 10px;
+	margin: 16px 0 6px 0;
+}
+.list>div>ul.left-list>li>a{
+	cursor: pointer;
+	font-size: 16px;
+	line-height: 28px;
+	color: #a6b7b8;
+}
+.list>div>ul.left-list>li.active{
+	background: url(../../images/pengbei/sprites.png);
+	background-position: 0 -379px; width: 66px; height: 28px;
+}
+
+.list>div>ul.title-list{
+	margin: 52px 0 0 26px;
+}
+.list>div>ul.title-list>li>div{
+	
+}
+.list>div>ul.title-list>li>div>span>a{
+	font-size: 14px;
+	line-height: 20px;
+	color: #fff;
+	letter-spacing: 1px;
+	width: 330px;
 	display: inline-block;
-	margin-left: 190px;
+	overflow: hidden;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
-.lanmu-title h1 span a{
-	font-size: 14px;
-	font-weight: normal;
-	font-family: '微软雅黑';
-}
-.lanmu-rdxw{
-	border-bottom: 3px solid #ff008a;
-}
-.lanmu-bbfc{
-	border-bottom: 3px solid #ff9d55;
-}
-.lanmu-hdkj{
-	border-bottom: 3px solid #ff8fee;
-}
-.lanmu-czzl{
-	border-bottom: 3px solid #c66b00;
-}
-.lanmu-cysh{
-	border-bottom: 3px solid #00e7ea;
-}
-.lanmu-cgxy{
-	border-bottom: 3px solid #00bf3f;
-}
-.lanmu-rdxw h1 span a{
-	color: #ff008a;
-}
-.lanmu-bbfc h1 span a{
-	color: #ff9d55;
-}
-.lanmu-hdkj h1 span a{
-	color: #ff8fee;
-}
-.lanmu-czzl h1 span a{
-	color: #c66b00;
-}
-.lanmu-cysh h1 span a{
-	color: #00e7ea;
-}
-.lanmu-cgxy h1 span a{
-	color: #00bf3f;
-}
-.lanmu-content{
-	margin:5px 0 0 0;
-}
-.lanmu-content img{
-	width: 106px;
-	height: 78px;
-	float: left;
-	margin-right: 8px;
-}
-.main2-lanmu ul li{
-	background: url(/images/pengbei/pengbei-bar.png) 0px -160px no-repeat;
-	padding-left: 15px;
-	font-size: 14px;
-	
-}
-.main2-lanmu ul li a{
-	color: #333333;
-	font-family: "微软雅黑";
-	/*font-weight: bold;*/
-}
-.rightMain-main3{
-	margin: 5px 0 0 0;
-	height: 122px;
-	background: url(/images/pengbei/pengbei-dept.jpg);
-}
-.xueyuanLink{
-	height: 122px;
-	margin-left: 115px;
-}
-.xueyuanLink li{
-	margin: 0 0 5px 0;
-}
-xueyuanLink li a:hover{
-	color:blue;
-}
-.one-link{
-	float:left;
-	margin-right:30px;
-	
-}
-.one-link li a{
-	font-size:13px;
-	color:#f3924b;
-}
-.one-link li a:hover{
-	color:#000;
-}
-.two-link{
-	float:left;
-	margin-right:30px;
-	
-}
-.two-link li a{
-	font-size:13px;
-	color:#ff33a1;
-}
-.two-link li a:hover{
-	color:#000;
-}
-.three-link{
-	float:left;
-	margin-right:30px;
-	
-}
-.three-link li a{
-	font-size:13px;
-	color:#f65bde;
-}
-.three-link li a:hover{
-	color:#000;
-}
-.four-link{
-	float:left;
-	margin-right:30px;
-	
-}
-.four-link li a{
-	font-size:13px;
-	color:#d18833;
-}
-.four-link li a:hover{
-	color:#000;
-}
-.five-link{
-	float:left;
-	margin-right:30px;
-}
-.five-link li a{
-	font-size:13px;
-	color:#33cb65;
-}
-.five-link li a:hover{
-	color:#000;
-}
-.six-link{
-	float:left;
-	
-}
-.six-link li a{
-	font-size:13px;
-	color:#1acccf;
-}
-.six-link li a:hover{
-	color:#000;
+.list>div>ul.title-list>li>div>span.date{
+	position: relative;
+	top: -5px;
+	*+top: 0px;
 }
 
-/* 默认幻灯片 */
-.FocusPic {zoom:1;position:relative; overflow:hidden}
-.FocusPic .content{overflow:hidden;position: relative;}
-.FocusPic .changeDiv a{position:absolute;top:0px;left:0px;display:none;}
-.FocusPic .title-bg,.FocusPic .title{background:none;position:absolute;left:0px; bottom:0px;width:530px; text-align:center;height:30px;line-height:30px;overflow:hidden}
-.FocusPic .title-bg{background:#000;filter:alpha(opacity=50);opacity:0.5;}
-.FocusPic .title a{display:block;color:#fff; font-size:14px;}
-.FocusPic .change{bottom:25px;height:20px;right:40px;*right:5px;_right:4px;position:absolute;text-align:right;z-index:100;}
-/*.FocusPic .change{bottom:34px;height:20px;right:172px;*right:5px;_right:4px;position:absolute;text-align:right;z-index:100;}*/
-.FocusPic .change i {background:rgba(102, 102, 102, 0.75);color:#FFF;cursor:pointer;font-family:Arial;font-size:12px;line-height:15px;margin-right:2px;padding:2px 6px; font-style:normal; height:15px;display:inline-block;display:-moz-inline-stack;zoom:1;*display:inline;}
-.FocusPic .change i.cur {background:rgba(0, 194, 255, 0.55);}
-.FocusPic .change i.cur a {color:#FFFFFF;}
-.FocusPic .change a {color:#222;}
+.arrow{
+	position: absolute;
+	cursor: pointer;
+	width: 14px;
+	height: 26px;
+	top: 156px;
+}
+#prev{
+	background: url(../../images/pengbei/sprites.png);
+	background-position: 0 -1013px; width: 14px; height: 26px;
+	left: 10px;
+}
+#next{
+	background: url(../../images/pengbei/sprites.png);
+	background-position: 0 -937px; width: 14px; height: 26px;
+	right: 10px;
+}
+.photo{
+	width: 630px;
+	height: 338px;
+	display: none;
+	opacity: 0;
+	filter:alpha(opacity=0);
+	position: absolute;
+	cursor: pointer;
+}
+.photo-ctrl{
+	position: absolute;
+	right: 0px;
+	top: 5px;
+}
+.photo-ctrl li{
+	width: 30px;
+	height: 30px;
+	margin: 0 5px;
+	float: left;
+	cursor: pointer;
+}
+.photo-ctrl li img{
+    width: 100%;
+    height: 100%;
+}
+
+
+#footer-link{
+	width: 100%;
+	position: relative;
+	background-color: #658e9c;
+}
+#footer-link>ul{
+	padding-top: 14px;
+	height: 86px;
+	width: 900px;
+	margin: 0 auto;
+}
+#footer-link>ul>li{
+	float: left;
+	width: 150px;
+}
+#footer-link>ul>li>a{
+	font-size: 12px;
+	color: #fff;
+	line-height: 18px;
+}

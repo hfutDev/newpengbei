@@ -1,5 +1,5 @@
 body{
-	background-image: url(../img/background-large.png);
+	background-image: url(../../images/pengbei/background-large.png);
 	position: relative;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -7,6 +7,12 @@ body{
 }
 *{
 	color: #000;
+}
+#loading{
+	display: none;
+}
+#nav{
+	opacity: 1;
 }
 #header{
 	position: relative;
@@ -63,13 +69,14 @@ body{
 	margin: 16px auto;
 	background-color: #d0c7c7;
 }
-#article p{
+#article div{
 	text-align: left;
-	font-size: 16px;
-	line-height: 28px;
-	text-indent: 2em;
+	line-height: 26px;
 	width: 864px;
-	margin: 13px auto;
+	margin: 0 auto;
+}
+#article div p{
+	margin: 12px;
 }
 #article img{
 	max-width: 864px;

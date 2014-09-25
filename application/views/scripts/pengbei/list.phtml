@@ -67,29 +67,21 @@
 		return ($ListLength>$arrLength)?$arrLength:$ListLength;
 	}
 ?>
+<link rel="stylesheet" type="text/css" href="/css/pengbei/article-list.css">
 
-<div id="main">
-	<?php
-		if (!empty($this->arrDept)) {?>
-		<a href="/pengbei<?=$DeptUrl?>" title="<?=$DeptName?>">
-			<div class="xueyuan-title">
-				<span><?=$DeptName?></span>
+<div class="main">
+	<ul>
+		<li class="rung"></li>
+		<li id="bread">
+			<div>
+				<a href="/pengbei">首页</a><span>&nbsp;&gt;&gt;&nbsp;</span><a href="/pengbei/list/column/<?=$ColumnCode?>"><?=$ColumnName?></a>
 			</div>
-		</a>
-	<?php } ?>
-
-	<div class="clearfloat"></div>
-	<div class="main-rightMain">
-	
-	<!--模块2:列表模块-->
-	<div class="pengbei-list">
-
-		<div class="list-left">
-		
-			<div class="crumbs" id="<?=$ColumnCode?>">
-				<h1><a href="/pengbei">首页</a> > <a href="/pengbei/list/column/<?=$ColumnCode?>"><?=$ColumnName?></a></h1>
-			</div>
-
+		</li>
+		<li class="rung"></li>
+	</ul>
+	<div id="move">
+		<ul>
+			<div id="vertical"></div>
 			<?php
 				$row=count($paginator);
 				if($row){
@@ -103,77 +95,27 @@
 						$TopAtDept	= $value['TopAtDept'];
 						$TopAtAll	= $value['TopAtAll'];
 						{ ?>
-							<ul><li>
-								<div class="fir-title">
-									<div class="content <?=$ColumnCode?>">
-										<p class="content-title">
-											<a href="/pengbei/article/id/<?=$ID?>" class="listtitle" target="_blank"><?=$Title?></a>
-										</p>
-										<p class="content_source">
-											<span><a style="color: blue;"><?=$Author?></a></span>
-											<span>|</span>
-											<span><?=$PublishTime?></span>
-											<span>|</span>
-											<span><?=$Click?></span>
-											<span>views</span>
-										</p>
+							<li>
+								<div class="time"><?=$PublishTime?></div>
+								<div class="circle"></div>
+								<div class="bubble">
+									<div class="content">
+										<div class="content-top">
+											<a href="/pengbei/article/id/<?=$ID?>" class="green" target="_blank"><?=$Title?></a>
+											<span>&nbsp;&nbsp;&nbsp;&nbsp;<?=$Author?>|<span class="green"><?=$Click?></span>views</span>
+										</div>
+										<p><?=$Article?>……<a href="/pengbei/article/id/<?=$ID?>" target="_blank" class="green">阅读全文»</a></span></p>
 									</div>
-									<span class="content-comment"><?=$Click?></span>
 								</div>
-								<div class="article">
-									<span class="words">　　<?=$Article?>……</span><span><a href="/pengbei/article/id/<?=$ID?>" target="_blank">阅读全文»</a></span>
-								</div>
-							</li></ul>
+							</li>
 						<?php }
 					}
 				}
 			?>
-		</div>
+		</ul>
+    </div>
 
-		<div id="list-fenye">
-			<?php echo $this->paginationControl($this->paginator_all,'Elastic','pengbei/pagination_control.phtml'); ?>
-		</div>
-
-		<div class="list-right">
-			<?php
-				for ($i=0; $i <= 5; $i++) { 
-					if($i!=$ColumnID) {
-						{ ?>
-						<div class="list-lanmu">
-							<div class="list-title <?=$arrColumn[$i]['ColumnCode']?>">
-								<h2><a href="/pengbei/list<?=$DeptUrl4List?>/column/<?=$arrColumn[$i]['ColumnCode']?>"><?=$arrColumn[$i]['ColumnName']?></a></h2>
-							</div>
-							<ul>
-						<?php }
-						switch ($i) {
-							case '0': $arrList = $this->arrListrdxw; break;
-							case '1': $arrList = $this->arrListbbfc; break;
-							case '2': $arrList = $this->arrListhdkj; break;
-							case '3': $arrList = $this->arrListczzl; break;
-							case '4': $arrList = $this->arrListcysh; break;
-							case '5': $arrList = $this->arrListcgxy; break;
-							// default : $arrList = $this->arrListrdxw; break;
-						}
-						$liNum = maxlist(count($arrList) - 1);
-						for ($j=0; $j <= $liNum; $j++) { ?>
-							<li><span><a href="/pengbei/article/id/<?=$arrList[$j]['ID']?>" title="<?=strRemoveBR($arrList[$j]['Title'])?>" target="_blank"><?=utf8Substr($arrList[$j]['Title'], 0, 21)?></a></span></li>
-						<?php }
-						{ ?>
-							</ul>
-							</div>
-						<?php }
-					} else {
-						continue;
-					}
-				}
-			?>
-		</div>
-			
+    <div id="list-fenye">
+		<?php echo $this->paginationControl($this->paginator_all,'Elastic','pengbei/pagination_control.phtml'); ?>
 	</div>
-	<!--/模块2结束-->
-
-	<div class="clearfloat"></div>
-
-	</div>
-
 </div>

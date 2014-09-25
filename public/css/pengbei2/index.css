@@ -1,6 +1,9 @@
 *{
 	color: #fff;
 }
+html,body{
+	height: 100%;
+}
 #nav{
 	opacity: 0;
 	filter:alpha(opacity=0);
@@ -22,12 +25,13 @@
 	display: inline;
 }
 
-
-
 #content{
-	height: 420px;
+	height: 80%;
+	min-height: 430px;
 	width: 100%;
-	padding-top: 250px;
+	display: block;
+	line-height: 100%;
+	padding-bottom: 220px;
 	position: relative;
 	background-color: #2dbdba;
 }
@@ -46,23 +50,26 @@
 	margin-left: -340px;
 	top: 160px;
 	z-index: 4;
-	background: url(../img/sprites.png);
+	background: url(../../images/pengbei/sprites.png);
 	background-position: 0 -457px; width: 870px; height: 430px;
 }
 .background-1{
 	z-index: 3;
 	margin-left: -40%;
-	background: url(../img/background-layer-1.png) no-repeat 50% 50%;
+	top: 180px;
+	background: url(../../images/pengbei/background-layer-1.png) no-repeat 50% 50%;
 }
 .background-2{
 	z-index: 2;
 	margin-left: -60%;
-	background: url(../img/background-layer-2.png) no-repeat 50% 50%;
+	top: 180px;
+	background: url(../../images/pengbei/background-layer-2.png) no-repeat 50% 50%;
 }
 .background-3{
 	margin-left: -60%;
+	top: 180px;
 	z-index: 1;
-	background: url(../img/background-layer-3.png) no-repeat 50% 50%;
+	background: url(../../images/pengbei/background-layer-3.png) no-repeat 50% 50%;
 }
 
 #new-content{
@@ -75,7 +82,8 @@
 }
 #ul{
 	width: 1890px;
-	height: 338px;
+	height: 322px;
+	padding-top:16px;
 	position: absolute;
 	left: -630px;
 }
@@ -106,6 +114,7 @@
 }
 .list>div>ul.left-list>.list-h1{
 	padding-left: 6px;
+	padding-bottom: 10px;
 	margin: 16px 0 6px 0;
 }
 .list>div>ul.left-list>li>a{
@@ -115,7 +124,7 @@
 	color: #a6b7b8;
 }
 .list>div>ul.left-list>li.active{
-	background: url(../img/sprites.png);
+	background: url(../../images/pengbei/sprites.png);
 	background-position: 0 -379px; width: 66px; height: 28px;
 }
 
@@ -151,12 +160,12 @@
 	top: 156px;
 }
 #prev{
-	background: url(../img/sprites.png);
+	background: url(../../images/pengbei/sprites.png);
 	background-position: 0 -1013px; width: 14px; height: 26px;
 	left: 10px;
 }
 #next{
-	background: url(../img/sprites.png);
+	background: url(../../images/pengbei/sprites.png);
 	background-position: 0 -937px; width: 14px; height: 26px;
 	right: 10px;
 }
@@ -186,6 +195,7 @@
 
 #footer-link{
 	width: 100%;
+	position: relative;
 	background-color: #658e9c;
 }
 #footer-link>ul{

@@ -34,20 +34,24 @@ class PengbeiController extends Zend_Controller_Action
 		$this->view->PageType = "index";
 
 		$ArticleMapper = new Application_Model_ArticleMapper();
-		$arrListrdxw = $ArticleMapper->findArticleForList('publish',-1,1,-1);
-		$arrListbbfc = $ArticleMapper->findArticleForList('publish',-1,2,-1);
-		$arrListhdkj = $ArticleMapper->findArticleForList('publish',-1,3,-1);
-		$arrListczzl = $ArticleMapper->findArticleForList('publish',-1,4,-1);
-		$arrListcysh = $ArticleMapper->findArticleForList('publish',-1,5,-1);
-		$arrListcgxy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
+		$arrListyw = $ArticleMapper->findArticleForList('publish',-1,1,-1);
+		$arrListxy = $ArticleMapper->findArticleForList('publish',-1,2,-1);
+		$arrListtx = $ArticleMapper->findArticleForList('publish',-1,3,-1);
+		$arrListtz = $ArticleMapper->findArticleForList('publish',-1,4,-1);
+		$arrListxs = $ArticleMapper->findArticleForList('publish',-1,5,-1);
+		$arrListjy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
+		$arrListky = $ArticleMapper->findArticleForList('publish',-1,7,-1);
+		$arrListqg = $ArticleMapper->findArticleForList('publish',-1,8,-1);
 
 		$arrListAjax = array(
-		'rdxw' =>	$arrListrdxw,
-		'bbfc' =>	$arrListbbfc,
-		'hdkj' =>	$arrListhdkj,
-		'czzl' =>	$arrListczzl,
-		'cysh' =>	$arrListcysh,
-		'cgxy' =>	$arrListcgxy
+		'yw' =>	$arrListyw,
+		'xy' =>	$arrListxy,
+		'tx' =>	$arrListtx,
+		'tz' =>	$arrListtz,
+		'xs' =>	$arrListxs,
+		'jy' =>	$arrListjy,
+		'ky' =>	$arrListky,
+		'qg' =>	$arrListqg
 		);
 		echo json_encode($arrListAjax);
 	}
