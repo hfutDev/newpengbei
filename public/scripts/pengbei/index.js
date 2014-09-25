@@ -1,8 +1,10 @@
 $(document).ready(function (){
     console.log($(window).height());
     $('#header').css("height",$(window).height()+"px");
-    if($(window).height()>$(document).height()){
-        var h = $(window).height()-$(document).height()+430;
+    console.log($(window).height());
+    console.log($(document).height());
+    if($(window).height()>818){
+        var h = $(window).height()-818+430;
         $('#content').css("height",h+"px");
         console.log($('#content').attr("height"));
     }
