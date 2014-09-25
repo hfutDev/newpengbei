@@ -1,13 +1,13 @@
 $(document).ready(function (){
-    console.log($(window).height());
+
+    //首页高度适应
     $('#header').css("height",$(window).height()+"px");
-    console.log($(window).height());
-    console.log($(document).height());
+    //818为页面最小高度
     if($(window).height()>818){
         var h = $(window).height()-818+430;
         $('#content').css("height",h+"px");
-        console.log($('#content').attr("height"));
     }
+
     //页面加载完成立即执行的动画
 	var i = 0;
 	var interval;
@@ -150,10 +150,8 @@ $(document).ready(function (){
     $('.photo-ctrl li').each(function(index){
         $(this).click(function () {
             clearInterval(timer2);
-            console.log($('.photo').attr("src").substring(52,53));
-            console.log($('.photo').attr("src").substring(52,53));
-            if(parseInt($('.photo').attr("src").substring(52,53)) == index+1){
-                $('.photo').attr("src","http://pengbei.hfutonline.net/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
+            if(parseInt($('.photo').attr("src").substring(23,24)) != index+1){
+                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
             } else{
                 $('.photo').click();
             }

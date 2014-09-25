@@ -1,5 +1,12 @@
 $(document).ready(function (){
 
+    //首页高度适应
+    //818为页面最小高度
+    if($(window).height()>818){
+        var h = $(window).height()-818+430;
+        $('#content').css("height",h+"px");
+    }
+
     //页面load后ajax加载列表
     var Json = $.ajax({url:"/pengbei/indexdata",async:false});
     var jsonData = JSON.parse(Json.responseText);
@@ -179,8 +186,8 @@ $(document).ready(function (){
     $('.photo-ctrl li').each(function(index){
         $(this).click(function () {
             clearInterval(timer2);
-            if(parseInt($('.photo').attr("src").substring(52,53)) != (index+1)){
-                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"1"},250).css("display","block");
+            if(parseInt($('.photo').attr("src").substring(23,24)) != index+1){
+                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
             } else{
                 $('.photo').click();
             }
