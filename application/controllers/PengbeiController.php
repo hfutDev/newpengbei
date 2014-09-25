@@ -10,6 +10,7 @@ class PengbeiController extends Zend_Controller_Action
 
 	public function indexAction()
 	{
+
 		$this->view->PageType = "index";
 
 		$ArticleMapper = new Application_Model_ArticleMapper();
@@ -28,6 +29,32 @@ class PengbeiController extends Zend_Controller_Action
 		$this->view->arrListcgxy = $arrListcgxy;
 	}
 
+	public function indexdataAction(){
+		$this->_helper->layout()->disableLayout();
+		$this->view->PageType = "index";
+
+		$ArticleMapper = new Application_Model_ArticleMapper();
+		$arrListyw = $ArticleMapper->findArticleForList('publish',-1,1,-1);
+		$arrListxy = $ArticleMapper->findArticleForList('publish',-1,2,-1);
+		$arrListtx = $ArticleMapper->findArticleForList('publish',-1,3,-1);
+		$arrListtz = $ArticleMapper->findArticleForList('publish',-1,4,-1);
+		$arrListxs = $ArticleMapper->findArticleForList('publish',-1,5,-1);
+		$arrListjy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
+		$arrListky = $ArticleMapper->findArticleForList('publish',-1,7,-1);
+		$arrListqg = $ArticleMapper->findArticleForList('publish',-1,8,-1);
+
+		$arrListAjax = array(
+		'yw' =>	$arrListyw,
+		'xy' =>	$arrListxy,
+		'tx' =>	$arrListtx,
+		'tz' =>	$arrListtz,
+		'xs' =>	$arrListxs,
+		'jy' =>	$arrListjy,
+		'ky' =>	$arrListky,
+		'qg' =>	$arrListqg
+		);
+		echo json_encode($arrListAjax);
+	}
 	public function deptAction()
 	{
 		$this->view->PageType = "dept";
