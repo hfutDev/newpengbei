@@ -32,7 +32,11 @@ $(document).ready(function (){
 
     //页面load后ajax加载列表
     $.ajax({
+<<<<<<< HEAD
             url: "../pages/json/url-list-5.json",
+=======
+            url: "../pages/json/url-list-4.json",
+>>>>>>> 8790b098e042e0e38f95a0b98920cf99d8696370
             dataType: "json",
             success: function (data){
                 $('.xinwen>div>.title-list').empty();
@@ -84,6 +88,7 @@ $(document).ready(function (){
     });
 
 
+<<<<<<< HEAD
     //加载页面时启动定时器
     function next(){
         $('#next').click();
@@ -99,6 +104,8 @@ $(document).ready(function (){
     });
 
 
+=======
+>>>>>>> 8790b098e042e0e38f95a0b98920cf99d8696370
     //左侧栏目列表点击
     $(".left-list-link").each(function(index){
         $(this).click(function () {
@@ -125,6 +132,7 @@ $(document).ready(function (){
             });
         });
     });
+<<<<<<< HEAD
 
     //图片
     $.ajax({
@@ -149,4 +157,6 @@ $(document).ready(function (){
             $(this).css("display","none");
         });
     });
+=======
+>>>>>>> 8790b098e042e0e38f95a0b98920cf99d8696370
 });
