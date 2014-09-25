@@ -1,9 +1,6 @@
 *{
 	color: #fff;
 }
-html,body{
-	height: 100%;
-}
 #nav{
 	opacity: 0;
 	filter:alpha(opacity=0);
@@ -26,8 +23,7 @@ html,body{
 }
 
 #content{
-	height: 80%;
-	min-height: 430px;
+	height: 430px;
 	width: 100%;
 	display: block;
 	line-height: 100%;

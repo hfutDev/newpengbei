@@ -152,7 +152,9 @@ body{
 }
 
 /*分页*/
-#list-fenye { height: 20px; width: 100%; margin: 20px auto; }
+#fen { width: 100%; margin: 10px auto 20px auto; }
+#list-fenye { height: 26px; width: 695px; margin: 0 auto; }
+#list-fenye ul { height: 26px; }
 #list-fenye li { width: auto; font-size:11px; float:left; }
 #list-fenye a { border:solid 1px #638c0b;  margin-right:2px; }
 #list-fenye .previous-off,#list-fenye .next-off { color:#666666; display:block; float:left; font-weight:bold; padding:3px 4px; }

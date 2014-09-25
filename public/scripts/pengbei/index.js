@@ -1,4 +1,15 @@
 $(document).ready(function (){
+
+    //设置高度
+    var windowHeight = $(window).height();
+    var documentHeight = $(document).height();
+    $('#header').css("height",windowHeight);
+    var windowHeight = $(window).height();
+    if(windowHeight>documentHeight){
+        var h = $('#header').attr("height")
+    }
+    console.log($('#content').css("height"));
+
     //页面加载完成立即执行的动画
 	var i = 0;
 	var interval;
