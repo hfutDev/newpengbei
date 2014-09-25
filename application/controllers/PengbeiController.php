@@ -10,6 +10,7 @@ class PengbeiController extends Zend_Controller_Action
 
 	public function indexAction()
 	{
+
 		$this->view->PageType = "index";
 
 		$ArticleMapper = new Application_Model_ArticleMapper();
@@ -28,6 +29,32 @@ class PengbeiController extends Zend_Controller_Action
 		$this->view->arrListcgxy = $arrListcgxy;
 	}
 
+	public function indexdataAction(){
+		$this->_helper->layout()->disableLayout();
+		$this->view->PageType = "index";
+
+		$ArticleMapper = new Application_Model_ArticleMapper();
+		$arrListyw = $ArticleMapper->findArticleForList('publish',-1,1,-1);
+		$arrListxy = $ArticleMapper->findArticleForList('publish',-1,2,-1);
+		$arrListtx = $ArticleMapper->findArticleForList('publish',-1,3,-1);
+		$arrListtz = $ArticleMapper->findArticleForList('publish',-1,4,-1);
+		$arrListxs = $ArticleMapper->findArticleForList('publish',-1,5,-1);
+		$arrListjy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
+		$arrListky = $ArticleMapper->findArticleForList('publish',-1,7,-1);
+		$arrListqg = $ArticleMapper->findArticleForList('publish',-1,8,-1);
+
+		$arrListAjax = array(
+		'yw' =>	$arrListyw,
+		'xy' =>	$arrListxy,
+		'tx' =>	$arrListtx,
+		'tz' =>	$arrListtz,
+		'xs' =>	$arrListxs,
+		'jy' =>	$arrListjy,
+		'ky' =>	$arrListky,
+		'qg' =>	$arrListqg
+		);
+		echo json_encode($arrListAjax);
+	}
 	public function deptAction()
 	{
 		$this->view->PageType = "dept";
@@ -81,27 +108,27 @@ class PengbeiController extends Zend_Controller_Action
 			}
 
 			$ArticleMapper = new Application_Model_ArticleMapper();
-			$arrListrdxw = $ArticleMapper->findArticleForList('publish',$DeptID,1,-1);
-			$arrListbbfc = $ArticleMapper->findArticleForList('publish',$DeptID,2,-1);
-			$arrListhdkj = $ArticleMapper->findArticleForList('publish',$DeptID,3,-1);
-			$arrListczzl = $ArticleMapper->findArticleForList('publish',$DeptID,4,-1);
-			$arrListcysh = $ArticleMapper->findArticleForList('publish',$DeptID,5,-1);
-			$arrListcgxy = $ArticleMapper->findArticleForList('publish',$DeptID,6,-1);
+			$arrListxw = $ArticleMapper->findArticleForList('publish',$DeptID,'xw',-1);
+			$arrListzx = $ArticleMapper->findArticleForList('publish',$DeptID,'zx',-1);
+			// $arrListhdkj = $ArticleMapper->findArticleForList('publish',$DeptID,3,-1);
+			// $arrListczzl = $ArticleMapper->findArticleForList('publish',$DeptID,4,-1);
+			// $arrListcysh = $ArticleMapper->findArticleForList('publish',$DeptID,5,-1);
+			// $arrListcgxy = $ArticleMapper->findArticleForList('publish',$DeptID,6,-1);
 
-			$this->view->arrListrdxw = $arrListrdxw;
-			$this->view->arrListbbfc = $arrListbbfc;
-			$this->view->arrListhdkj = $arrListhdkj;
-			$this->view->arrListczzl = $arrListczzl;
-			$this->view->arrListcysh = $arrListcysh;
-			$this->view->arrListcgxy = $arrListcgxy;
+			$this->view->arrListxw = $arrListxw;
+			$this->view->arrListzx = $arrListzx;
+			// $this->view->arrListhdkj = $arrListhdkj;
+			// $this->view->arrListczzl = $arrListczzl;
+			// $this->view->arrListcysh = $arrListcysh;
+			// $this->view->arrListcgxy = $arrListcgxy;
 
 			switch ($ColumnCode) {
-				case 'rdxw': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListrdxw)); break;
-				case 'bbfc': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListbbfc)); break;
-				case 'hdkj': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListhdkj)); break;
-				case 'czzl': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListczzl)); break;
-				case 'cysh': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListcysh)); break;
-				case 'cgxy': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListcgxy)); break;
+				case 'xw': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListxw)); break;
+				case 'zx': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListzx)); break;
+				// case 'hdkj': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListhdkj)); break;
+				// case 'czzl': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListczzl)); break;
+				// case 'cysh': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListcysh)); break;
+				// case 'cgxy': $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListcgxy)); break;
 				// default : $paginator = new Zend_Paginator(new Zend_Paginator_Adapter_Array($arrListrdxw)); break;
 			}
 			$num=10; $page=1; //设置每一页显示的文章数目 //设置第一页显示

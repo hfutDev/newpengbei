@@ -20,7 +20,15 @@
 		public function findColumnByCode($ColumnCode)
 		{
 			$ab = $this->db->getAdapter();
+			if(!is_numeric($Column)){
+				switch ($ColumnCode) {
+					case 'xw': $where = $ab->quoteInto('ColumnID in (1,2,3)'); break;
+					case 'zx': $where = $ab->quoteInto('ColumnID in (4,5,6,7,8)'); break;
+				}
+				
+			} else {
 			$where = $ab->quoteInto('ColumnCode = ?', $ColumnCode);
+			}
         	$arr = $this->db->fetchAll($where)->toArray();
 
         	return $arr;

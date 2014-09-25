@@ -212,8 +212,30 @@ class Application_Model_Admin_Admin
 		
 		return $newimgarr;
 	}
-	
-	
+
+	/**
+	* 对图片进行缩放
+	*/
+	function resize_image($filename, $tmpname, $xmax, $ymax)
+	{	
+	    $ext = explode(".", $filename);
+	    $ext = $ext[count($ext)-1];
+
+	    if($ext == "jpg" || $ext == "jpeg")
+	        $im = imagecreatefromjpeg($tmpname);
+	    else if($ext == "png")
+	        $im = imagecreatefrompng($tmpname);
+	    else if($ext == "gif")
+	        $im = imagecreatefromgif($tmpname);
+	    $x = imagesx($im);
+	    $y = imagesy($im);
+	    $im2 = imagecreatetruecolor($xmax, $ymax);
+	    imagecopyresized($im2, $im, 0, 0, 0, 0, $xmax, $ymax, $x, $y);
+	    imagedestroy($tmpname);
+	    
+	    return $im2;
+	}
+
 	
 	
 }

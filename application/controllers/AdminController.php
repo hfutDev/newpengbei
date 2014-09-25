@@ -263,6 +263,78 @@ class AdminController extends Zend_Controller_Action
 		}
 	}
 
+	/* 上传图片页面 */
+	public function imageuploadAction(){
+		$ArticleMapper = new Application_Model_ImageinfoMapper();
+		$method = $this->_request->getParam("method");
+		if($method == "post"){
+			$deptid = $this->_request->getParam("deptid");
+			//实例化文件上传类 
+			$upload = new Zend_File_Transfer();
+			$upload->addValidator('Size', false, 5 * 1024 * 1024);
+			$upload->addValidator('Extension', false, 'jpg,gif,png');
+
+			if (!$upload->isValid()) {
+			    echo "<script>alert('格式不符或文件过大，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			//获取上传的文件表单，可以有多项
+			$fileInfo = $upload->getFileInfo();
+			$parseImg = new Application_Model_Admin_Admin();
+			$filetmp = $parseImg->resize_image($fileInfo['imageFile']['name'], $fileInfo['imageFile']['tmp_name'], '480', '280');
+			imagedestroy($fileInfo['imageFile']['tmp_name']);
+			//获取后缀名，这里imageFile为上传表单file控件的name
+			$ext = explode(".",$fileInfo['imageFile']['name'])[1];
+			//定义生成目录
+			$dir = './upload' . date('/Y/m/');
+			//文件重新命名
+			do {
+			    $filename = date('His') . rand(100000, 999999) . '.' . $ext;
+			} while (file_exists($dir . $filename));
+			 
+			//如果目录不存在则创建目录
+			if (!file_exists($dir)) {
+				mkdir($dir, 0, true);
+			}
+			//将图片信息插入数据库
+			
+			$i = $ArticleMapper->uploadImageInfo($filename, $_SESSION['user']['RealName'], $deptid);
+			if(!isset($i)){
+				echo "<script>alert('图片信息上传失败，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			//将图片正式写入
+			imagejpeg($filetmp,$dir.'/'.$filename,100);
+			imagedestroy($filetmp);
+			
+			echo "<script>alert('上传成功！');location.href = '/admin/imageupload';</script>";
+		} else {
+			//加载列表
+			$DeptMapper = new Application_Model_DepartmentMapper();
+			$arr = $DeptMapper->findAllDept();
+			$this->view->arrDept = $arr;
+			$this->view->imageArr = $ArticleMapper->selectImageInfo($_SESSION['user']['RealName']);
+		}
+
+	}
+
+	public function imageajaxAction(){
+		$method = $this->_request->getParam("method");
+		if($method == "del"){
+			$this->_helper->layout()->disableLayout();
+			$imageName = $this->_request->getParam("name");
+			$time = $this->_request->getParam("time");
+			$imageUrl = $dir = './upload'.$time.$imageName;
+			$ImageinfoMapper = new Application_Model_ImageinfoMapper();
+			$i = $ImageinfoMapper->delImageInfo($imageName);
+			if(!isset($i)){
+				echo "<script>alert('图片信息删除失败，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			echo unlink($imageUrl);
+		}
+	}
+
 	/* 文章编辑修正页面 */
 	public function editarticleAction()
 	{

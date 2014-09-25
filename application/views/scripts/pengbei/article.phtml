@@ -48,106 +48,24 @@
 	}
 ?>
 
-<div id="main">
-	<a href="/pengbei<?=$DeptUrl?>" title="<?=$DeptName?>">
-		<div class="xueyuan-title">
-			<span><?=$DeptName?></span>
-		</div>
-	</a>
+<link rel="stylesheet" type="text/css" href="/css/pengbei/article.css">
 
-	<div class="clearfloat"></div>
-
-	<div class="main-rightMain">
-	
-		<!--模块2:列表模块-->
-		<div class="pengbei-list">
-			<div class="list-left">
-				<div class="crumbs" id="<?=$ColumnCode?>">
-					<h1><a href="/pengbei">首页</a> > <a href="/pengbei/list/column/<?=$ColumnCode?>"><?=$ColumnName?></a> > <a>正文</a></h1>
-				</div>
-
-				<ul><li>
-					<div class="fir-title">
-						<div class="content <?=$ColumnCode?>">
-							<p class="content-title" id="content-title"><?=$Title?></p>
-							<p class="content_source">
-									<span>
-										<a style="color: blue;"><?=$Author?></a>
-									</span>
-									<span>|</span>
-									<span><?=$PublishTime?></span>
-									<span>|</span>
-									<span><?=$Click?></span>
-									<span>views</span>
-								</p>
-						</div>
-						<span class="content-comment"><?=$Click?></span>
-					</div>
-
-					<div class="clearfloat"></div>
-
-					<div class="article article-all" id="article">
-						<?=$Article?>
-					</div>
-
-					<div class="shareto">
-						<span class="sharetofriend">分享给小伙伴们：</span>
-						<!-- JiaThis Button BEGIN -->
-						<div class="jiathis_style_32x32">
-						<a class="jiathis_button_qzone"></a>
-						<a class="jiathis_button_tsina"></a>
-						<a class="jiathis_button_renren"></a>
-						<a class="jiathis_button_weixin"></a>
-						<a class="jiathis_button_tqq"></a>
-						<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
-						<a class="jiathis_counter_style"></a>
-						</div>
-						<!-- JiaThis Button END -->
-					</div>
-
-				</li></ul>
-
-			</div>
-
-			<div class="list-right">
-				<?php
-					for ($i=0; $i <= 5; $i++) { 
-						if($i!=$ColumnID) {
-							{ ?>
-							<div class="list-lanmu">
-								<div class="list-title <?=$arrColumn[$i]['ColumnCode']?>">
-									<h2><a href="/pengbei/list<?=$DeptUrl4List?>/column/<?=$arrColumn[$i]['ColumnCode']?>"><?=$arrColumn[$i]['ColumnName']?></a></h2>
-								</div>
-								<ul>
-							<?php }
-							switch ($i) {
-								case '0': $arrList = $this->arrListrdxw; break;
-								case '1': $arrList = $this->arrListbbfc; break;
-								case '2': $arrList = $this->arrListhdkj; break;
-								case '3': $arrList = $this->arrListczzl; break;
-								case '4': $arrList = $this->arrListcysh; break;
-								case '5': $arrList = $this->arrListcgxy; break;
-								// default : $arrList = $this->arrListrdxw; break;
-							}
-							$liNum = maxlist(count($arrList) - 1);
-							for ($j=0; $j <= $liNum; $j++) { ?>
-								<li><span><a href="/pengbei/article/id/<?=$arrList[$j]['ID']?>" title="<?=strRemoveBR($arrList[$j]['Title'])?>" target="_blank"><?=utf8Substr($arrList[$j]['Title'], 0, 21)?></a></span></li>
-							<?php }
-							{ ?>
-								</ul>
-								</div>
-							<?php }
-						} else {
-							continue;
-						}
-					}
-				?>
-			</div>
-		</div>
-		<!--/模块2结束-->
-
-		<div class="clearfloat"></div>
-
-	</div>
-
+<div class="main">
+    <ul>
+        <li class="rung"></li>
+        <li id="bread">
+            <div>
+                <a href="/pengbei">首页</a><span>&nbsp;&gt;&gt;&nbsp;</span><a href="/pengbei/list/column/<?=$ColumnCode?>"><?=$ColumnName?></a><span>&nbsp;&gt;&gt;&nbsp;</span><a>正文</a>
+            </div>
+        </li>
+        <li class="rung"></li>
+    </ul>
+    <div id="article">
+        <h1 class="green"><?=$Title?></h1>
+        <span><?=$Author?>&nbsp;|&nbsp;<?=$PublishTime?>&nbsp;|&nbsp;<span class="green"><?=$Click?></span>views</span>
+        <div class="hr"></div>
+        <div>
+            <?=$Article?>
+        </div>
+    </div>
 </div>

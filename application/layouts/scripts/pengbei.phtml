@@ -33,64 +33,39 @@
 	<?php } ?>
 	<title><?=$Title?>工大学子 - 学子资讯网</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="/css/pengbei/base.css">
-	<link rel="stylesheet" type="text/css" href="/css/pengbei/<?=$PageType?>.css">
+	<link rel="stylesheet" type="text/css" href="http://book.hfutonline.net/css/reset.min.css">
+	<link rel="stylesheet" type="text/css" href="/css/pengbei/basic.css">
 	<?php if (($PageType=='index')||($PageType=='dept')) { ?>
-	<script type="text/javascript" src="/scripts/pengbei/jquery-1.7.1.min.js"></script>
-	<script type="text/javascript" src="/scripts/pengbei/jquery.sgallery.js"></script> 
 	<?php } ?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<a href="http://online.hfut.edu.cn/" target="_blank"><div id="hfutonline-logo"></div></a>
-			<div class="pengbei-logo"></div>
-			<div class="pengbei-nav">
-				<ul>
-					<li class="nav-index"><a href="/pengbei">首页</a></li>
-					<li class="nav-rdxw"><a href="/pengbei/list<?=$DeptUrl?>/column/rdxw">热点新闻</a></li>
-					<li class="nav-bbfc"><a href="/pengbei/list<?=$DeptUrl?>/column/bbfc" >标兵风采</a></li>
-					<li class="nav-hdkj"><a href="/pengbei/list<?=$DeptUrl?>/column/hdkj" >互动空间</a></li>
-					<li class="nav-czzl"><a href="/pengbei/list<?=$DeptUrl?>/column/czzl">成长之路</a></li>
-					<li class="nav-cysh"><a href="/pengbei/list<?=$DeptUrl?>/column/cysh">畅游书海</a></li>
-					<li class="nav-cgxy"><a href="/pengbei/list<?=$DeptUrl?>/column/cgxy">草根校园</a></li>
-				</ul>
-			</div>
+	<div id="header">
+		<div id="nav">
+			<a id="index" href="/pengbei">学子资讯网</a>
+			<a class="xinzi" href="/pengbei/list/column/xw">新闻</a>
+			<a class="xinzi" href="/pengbei/list/column/zx">资讯</a>
+			<div class="img"></div>
 		</div>
+		<div id="loading">
+			<img src="/images/pengbei/loading.gif">
+			<br/>
+			<p class="loading-char">学</p>
+			<p class="loading-char">子</p>
+			<p class="loading-char">资</p>
+			<p class="loading-char">讯</p>
+			<p class="loading-char">网</p>
+		</div>
+	</div>
+	<div id="container">
 		<div class="clearfloat"></div>
 
 		<?php echo $this->layout()->content; ?>
 		
 		<div class="clearfloat"></div>
-		<div id="footer">
-			<dl>
-				<dd>CopyRight©2006-<?=date("Y")?> 合肥工业大学党委学工部（处）大学生发展网络教育中心 All rights reserved.</dd>
-			</dl>
-		</div>
 	</div>
 
-	<?php if ($PageType=='article') { ?>
-	<script type="text/javascript" >
-		var articleTitle = document.getElementById("content-title").innerHTML;
-		var shareTitle = articleTitle.replace(/<br(\/)?(\s)*(\/)?>/i,'') + " (via.合肥工业大学 学子资讯网)";
-		var articleSummary = document.getElementById("article").innerHTML.replace(/<[^>]+>/g,'').replace(/\s+/g,'');
-		function subString(str,len,hasDot){var newLength=0;var newStr="";var chineseRegex=/[^\x00-\xff]/g;var singleChar='';var strLength=str.replace(chineseRegex,'**').length;for(var i=0;i<strLength;i++){singleChar=str.charAt(i).toString();if(singleChar.match(chineseRegex)!=null){newLength+=2}else{newLength++}if(newLength>len){break}newStr+=singleChar}if(hasDot&&strLength>len){newStr+='...'}return newStr}
-		var jiathis_config={
-			url:window.location.href,
-			summary:subString(articleSummary,100,true),
-			title:"#学子资讯# " + shareTitle,
-			ralateuid:{"tsina":"2307523172"},
-			appkey:{"tsina":"3833020400"},
-			hideMore:true}
-	</script>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8">
-	</script>
-	<?php } ?>
-
-	<div style="display: none;">
-	<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-46196912-1', 'hfutonline.net');ga('send', 'pageview');</script>
-	<script src="http://s17.cnzz.com/stat.php?id=5755141&web_id=5755141" language="JavaScript"></script>
-	<script type="text/javascript" src="http://js.tongji.linezing.com/3373960/tongji.js"></script>
+	<div class="footer">
+		<p>CopyRight©2006-2014 合肥工业大学党委学工部（处）大学生发展网络教育中心 All rights reserved.</p>
 	</div>
 
 </body>
