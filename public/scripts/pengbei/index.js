@@ -31,7 +31,7 @@ $(document).ready(function (){
     run();
 
     //页面load后ajax加载列表
-    var Json = $.ajax({url:"http://newpengbei.zhujun.net/pengbei/indexdata",async:false});
+    var Json = $.ajax({url:"/pengbei/indexdata",async:false});
     var jsonData = JSON.parse(Json.responseText);
 
     $('.xinwen>div>.title-list').empty();
@@ -142,7 +142,7 @@ $(document).ready(function (){
         $(this).click(function () {
             clearInterval(timer2);
             if(parseInt($('.photo').attr("src").substring(52,53)) != (index+1)){
-                $('.photo').attr("src","http://pengbei.hfutonline.net/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"1"},250).css("display","block");
+                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"1"},250).css("display","block");
             } else{
                 $('.photo').click();
             }
@@ -153,7 +153,7 @@ $(document).ready(function (){
         timer2=setInterval(next, 3500);
         $(this).animate({"opacity":"0"},250,function () {
             $(this).css("display","none");
-            $('.photo').attr("src","http://pengbei.hfutonline.net/images/pengbei/banner/0.jpg");
+            $('.photo').attr("src","/images/pengbei/banner/0.jpg");
         });
     });
 });
