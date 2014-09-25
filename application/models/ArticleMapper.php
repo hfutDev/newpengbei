@@ -181,7 +181,10 @@
 			if ($Type == 'publish')	$where = $ab->quoteInto('Published > ?',0);
 			if ($DeptID != -1)
 				$where .= $ab->quoteInto(' And DeptID=?',$DeptID);
-			if ($Column != -1)
+			if(!is_numeric($Column)){
+				$where .= $ab->quoteInto(' And ColumnID in ?',$Column);
+			}
+			else if ($Column != -1)
 				$where .= $ab->quoteInto(' And ColumnID=?',$Column);
 			if ($UserID != -1)
 				$where .= $ab->quoteInto(' And WriterID=?',$UserID);
