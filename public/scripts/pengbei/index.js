@@ -1,4 +1,10 @@
 $(document).ready(function (){
+    console.log($(window).height());
+    $('#header').css("height",$(window).height()+"px");
+    if($(window).height()>$(document).height()){
+        var h = $(window).height()-$(document).height()+430;
+        $('#content').css("height",h+"px");
+    }
     //页面加载完成立即执行的动画
 	var i = 0;
 	var interval;
