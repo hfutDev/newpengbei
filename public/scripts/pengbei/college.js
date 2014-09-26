@@ -142,7 +142,7 @@ $(document).ready(function (){
 
             var jsondata;
             switch(thisCkick.html()){
-                case "通知":
+                case "活动":
                     jsondata = jsonData.tz;
                     break;
                 case "学术":
@@ -157,7 +157,7 @@ $(document).ready(function (){
                 case "勤工":
                     jsondata = jsonData.qg;
                     break;
-                case "要闻":
+                case "校内":
                     jsondata = jsonData.yw;
                     break;
                 case "学院":
