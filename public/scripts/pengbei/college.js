@@ -79,7 +79,7 @@ $(document).ready(function (){
         if(jsonData.yw[i].DeptID == deptId && $('.xinwen>div>.title-list>li').length < 10){
             var item = jsonData.yw[i];
             var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
             $('.xinwen>div>.title-list').append(newDOM);
         }
     };
@@ -90,7 +90,7 @@ $(document).ready(function (){
         if(jsonData.tz[i].DeptID == deptId && $('.zixun>div>.title-list>li').length < 10){
             var item = jsonData.tz[i];
             var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
             $('.zixun>div>.title-list').append(newDOM);
         }
     };
@@ -171,11 +171,10 @@ $(document).ready(function (){
             }
 
             for (var i = 0; i < jsondata.length; i++) {
-                if(jsondata[i].DeptID == deptId && $('.append').length < 10){
+                if(jsondata[i].DeptID == deptId && thisCkick.parent().parent().next().children().length < 10){
                     var item = jsondata[i];
-                    console.log(item);
                     var date = new Date(parseFloat(item.PublishTime)*1000);
-                    var newDOM = '<li class="append"><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+                    var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
                     thisCkick.parent().parent().next().append(newDOM);
                 }
             };

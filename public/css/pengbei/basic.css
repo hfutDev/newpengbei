@@ -10,7 +10,7 @@
 }
 #nav{
 	width: 1000px;
-	height: 70px;
+    height: 100%;
 	margin: 0 auto;
 	position: relative;
 	color: #cfcfcf;
