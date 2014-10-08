@@ -36,11 +36,11 @@
                                 ?>
                             </select>
                             <?php
-                            if ($_SESSION['user']['Type'] == 1) echo "&#12288;&#12288;
-                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatall\">首页置顶</label></span>&#12288;&#12288;
-                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\">学院置顶</label></span>";
-                            if ($_SESSION['user']['Type'] == 2) echo "&#12288;&#12288;
-                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\">置顶</label></span>"; ?>
+                            //if ($_SESSION['user']['Type'] == 1) echo "&#12288;&#12288;
+                            //<span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatall\">首页置顶</label></span>&#12288;&#12288;
+                            //<span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\">学院置顶</label></span>";
+                            //if ($_SESSION['user']['Type'] == 2) echo "&#12288;&#12288;
+                            //<span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\">置顶</label></span>"; ?>
                         </p>
                         <?php if ($_SESSION['user']['Type'] != 3) echo
                         "<p>时　间：&nbsp<input type=\"text\" name=\"publishtime\" id=\"timepicker\" class=\"text-input\" size=\"22\" value=\"".$this->time."\" style=\"position:relative;z-index:1000;\" readonly/></p>"; ?>
