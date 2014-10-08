@@ -73,18 +73,17 @@ $(document).ready(function (){
         default:
             console.log('Error!');
     }
-
     $('.xinwen>div>.title-list').empty();
     for (var i = 0; i < jsonData.yw.length; i++) {
         if(jsonData.yw[i].DeptID == deptId){
             var item = jsonData.yw[i];
             var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>';
             $('.xinwen>div>.title-list').append(newDOM);
-            if ($('.xinwen>div>.title-list>li').length>=9) {
-                return false;
-            };
-        }
+        };
+        if ($('.xinwen>div>.title-list>li').length>9) {
+            break;
+        };
     };
 
 
@@ -93,12 +92,12 @@ $(document).ready(function (){
         if(jsonData.tz[i].DeptID == deptId){
             var item = jsonData.tz[i];
             var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>';
             $('.zixun>div>.title-list').append(newDOM);
-            if ($('.zixun>div>.title-list>li').length>=9) {
-                return false;
-            };
-        }
+        };
+        if ($('.zixun>div>.title-list>li').length>9) {
+            break;
+        };
     };
 
     //Macbook Air内容切换
@@ -142,12 +141,12 @@ $(document).ready(function (){
             $(this).parent().addClass("active");
             $(this).parent().nextAll().removeClass("active");
             $(this).parent().prevAll().removeClass("active");
-            var thisCkick = $(this);
+            var thisClick = $(this);
 
-            thisCkick.parent().parent().next().empty();
+            thisClick.parent().parent().next().empty();
 
             var jsondata;
-            switch(thisCkick.html()){
+            switch(thisClick.html()){
                 case "活动":
                     jsondata = jsonData.tz;
                     break;
@@ -181,13 +180,14 @@ $(document).ready(function (){
                     var item = jsondata[i];
                     var date = new Date(parseFloat(item.PublishTime)*1000);
                     var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-                    thisCkick.parent().parent().next().append(newDOM);
-                    if (thisCkick.parent().parent().next().children().length>=9) {
-                        return false;
-                    };
-                }
+                    thisClick.parent().parent().next().append(newDOM);
+                };
+                if (thisClick.parent().parent().next().children().length>9) {
+                    return false;
+                };
             };
         });
+
     });
 
     //图片

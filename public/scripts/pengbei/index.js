@@ -104,12 +104,12 @@ $(document).ready(function (){
             $(this).parent().addClass("active");
             $(this).parent().nextAll().removeClass("active");
             $(this).parent().prevAll().removeClass("active");
-            var thisCkick = $(this);
+            var thisClick = $(this);
 
-            thisCkick.parent().parent().next().empty();
+            thisClick.parent().parent().next().empty();
 
             var jsondata;
-            switch(thisCkick.html()){
+            switch(thisClick.html()){
                 case "活动":
                     jsondata = jsonData.tz;
                     break;
@@ -141,7 +141,7 @@ $(document).ready(function (){
             $.each(jsondata,function (index,item){
                 var date = new Date(parseFloat(item.PublishTime)*1000);
                 var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-                thisCkick.parent().parent().next().append(newDOM);
+                thisClick.parent().parent().next().append(newDOM);
                 if (index>=9) {
                     return false;
                 };
