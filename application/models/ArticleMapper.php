@@ -198,8 +198,7 @@
 			// $order = "WriteTime DESC";
 			$select->from('article', array('ID','ColumnID','DeptID','Title','PublishTime'))
 			->where($where)
-			->order('WriteTime DESC')
-			->limit(10);
+			->order('WriteTime DESC');
 			// $sql = $select->__toString();
 			$result = $ab->fetchAll($select);  
 
