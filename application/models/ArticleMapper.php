@@ -175,28 +175,35 @@
 		public function findArticleForList($Type,$DeptID,$Column,$UserID)
 		{
 			$ab = $this->db->getAdapter();
-			if ($Type == 'all')		$where = $ab->quoteInto('Published < ?',10);	//其实此处应为null，但考虑下面有And条件，故设定一个无用的判断(所有文章都符合)
-			if ($Type == 'wait')	$where = $ab->quoteInto('Published = ?',0);
-			if ($Type == 'reject')	$where = $ab->quoteInto('Published = ?',-1);
-			if ($Type == 'publish')	$where = $ab->quoteInto('Published > ?',0);
+			$select = $ab->select();
+			
+			if ($Type == 'all')		$where = 'Published < 10';	//其实此处应为null，但考虑下面有And条件，故设定一个无用的判断(所有文章都符合)
+			if ($Type == 'wait')	$where = 'Published = 0';
+			if ($Type == 'reject')	$where = 'Published = -1';
+			if ($Type == 'publish')	$where = 'Published > 0';
 			if ($DeptID != -1)
-				$where .= $ab->quoteInto(' And DeptID=?',$DeptID);
+				$where .= ' And DeptID='.$DeptID;
 			// if ($Column != -1)
 			if(!is_numeric($Column)){
 				switch ($Column) {
-					case 'xw': $where .= $ab->quoteInto(' And ColumnID in (1,2,3)'); break;
-					case 'zx': $where .= $ab->quoteInto(' And ColumnID in (4,5,6,7,8)'); break;
+					case 'xw': $where .= ' And ColumnID in (1,2,3)'; break;
+					case 'zx': $where .= ' And ColumnID in (4,5,6,7,8)'; break;
 				}
 			}
 			else if ($Column != -1)
-				$where .= $ab->quoteInto(' And ColumnID=?',$Column);
+				$where .= ' And ColumnID='.$Column;
 			if ($UserID != -1)
-				$where .= $ab->quoteInto(' And WriterID=?',$UserID);
+				$where .= ' And WriterID=?'.$UserID;
 
-			$order = "WriteTime DESC";
-			$rows=$this->db->fetchAll($where,$order)->toArray();
+			// $order = "WriteTime DESC";
+			$select->from('article', array('ID','ColumnID','DeptID','Title','PublishTime'))
+			->where($where)
+			->order('WriteTime DESC')
+			->limit(10);
+			// $sql = $select->__toString();
+			$result = $ab->fetchAll($select);  
 
-			return $rows;
+			return $result;
 		}
 		
 		/**
