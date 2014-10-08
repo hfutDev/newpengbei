@@ -76,22 +76,28 @@ $(document).ready(function (){
 
     $('.xinwen>div>.title-list').empty();
     for (var i = 0; i < jsonData.yw.length; i++) {
-        if(jsonData.yw[i].DeptID == deptId && $('.xinwen>div>.title-list>li').length < 10){
+        if(jsonData.yw[i].DeptID == deptId){
             var item = jsonData.yw[i];
             var date = new Date(parseFloat(item.PublishTime)*1000);
             var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
             $('.xinwen>div>.title-list').append(newDOM);
+            if ($('.xinwen>div>.title-list>li').length>=9) {
+                return false;
+            };
         }
     };
 
 
     $('.zixun>div>.title-list').empty();
     for (var i = 0; i < jsonData.tz.length; i++) {
-        if(jsonData.tz[i].DeptID == deptId && $('.zixun>div>.title-list>li').length < 10){
+        if(jsonData.tz[i].DeptID == deptId){
             var item = jsonData.tz[i];
             var date = new Date(parseFloat(item.PublishTime)*1000);
             var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
             $('.zixun>div>.title-list').append(newDOM);
+            if ($('.zixun>div>.title-list>li').length>=9) {
+                return false;
+            };
         }
     };
 
@@ -171,11 +177,14 @@ $(document).ready(function (){
             }
 
             for (var i = 0; i < jsondata.length; i++) {
-                if(jsondata[i].DeptID == deptId && thisCkick.parent().parent().next().children().length < 10){
+                if(jsondata[i].DeptID == deptId){
                     var item = jsondata[i];
                     var date = new Date(parseFloat(item.PublishTime)*1000);
                     var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
                     thisCkick.parent().parent().next().append(newDOM);
+                    if (thisCkick.parent().parent().next().children().length>=9) {
+                        return false;
+                    };
                 }
             };
         });

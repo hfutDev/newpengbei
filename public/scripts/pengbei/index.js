@@ -45,19 +45,21 @@ $(document).ready(function (){
 
     $('.xinwen>div>.title-list').empty();
     $.each(jsonData.yw,function (index,item){
-        if (index<10) {
-            var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-            $('.xinwen>div>.title-list').append(newDOM);
+        var date = new Date(parseFloat(item.PublishTime)*1000);
+        var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+        $('.xinwen>div>.title-list').append(newDOM);
+        if (index>=9) {
+            return false;
         };
     });
 
     $('.zixun>div>.title-list').empty();
     $.each(jsonData.tz,function (index,item){
-        if (index<10) {
-            var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-            $('.zixun>div>.title-list').append(newDOM);
+        var date = new Date(parseFloat(item.PublishTime)*1000);
+        var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+        $('.zixun>div>.title-list').append(newDOM);
+        if (index>=9) {
+            return false;
         };
     });
 
@@ -137,10 +139,11 @@ $(document).ready(function (){
             }
 
             $.each(jsondata,function (index,item){
-                if (index<10) {
-                    var date = new Date(parseFloat(item.PublishTime)*1000);
-                    var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-                    thisCkick.parent().parent().next().append(newDOM);
+                var date = new Date(parseFloat(item.PublishTime)*1000);
+                var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+                thisCkick.parent().parent().next().append(newDOM);
+                if (index>=9) {
+                    return false;
                 };
             });
         });
