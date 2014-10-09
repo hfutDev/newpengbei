@@ -293,7 +293,7 @@ class AdminController extends Zend_Controller_Action
 			 
 			//如果目录不存在则创建目录
 			if (!file_exists($dir)) {
-				mkdir($dir, 0, true);
+				mkdir($dir, 0777, true);
 			}
 			//将图片正式写入
 			$pass = imagejpeg($filetmp,$dir.'/'.$filename,100);

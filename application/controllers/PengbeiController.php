@@ -108,8 +108,8 @@ class PengbeiController extends Zend_Controller_Action
 			}
 
 			$ArticleMapper = new Application_Model_ArticleMapper();
-			$arrListxw = $ArticleMapper->findArticleForList('publish',$DeptID,'xw',-1);
-			$arrListzx = $ArticleMapper->findArticleForList('publish',$DeptID,'zx',-1);
+			$arrListxw = $ArticleMapper->findArticleForListAll('publish',$DeptID,'xw',-1);
+			$arrListzx = $ArticleMapper->findArticleForListAll('publish',$DeptID,'zx',-1);
 			// $arrListhdkj = $ArticleMapper->findArticleForList('publish',$DeptID,3,-1);
 			// $arrListczzl = $ArticleMapper->findArticleForList('publish',$DeptID,4,-1);
 			// $arrListcysh = $ArticleMapper->findArticleForList('publish',$DeptID,5,-1);

@@ -170,7 +170,7 @@
 		}
 		
 		/**
-		* 查找文章 用于列表
+		* 查找文章信息 用于列表
 		*/
 		public function findArticleForList($Type,$DeptID,$Column,$UserID)
 		{
@@ -206,6 +206,39 @@
 			return $result;
 		}
 		
+		public function findArticleForListAll($Type,$DeptID,$Column,$UserID){
+			$ab = $this->db->getAdapter();
+			$select = $ab->select();
+			
+			if ($Type == 'all')		$where = 'Published < 10';	//其实此处应为null，但考虑下面有And条件，故设定一个无用的判断(所有文章都符合)
+			if ($Type == 'wait')	$where = 'Published = 0';
+			if ($Type == 'reject')	$where = 'Published = -1';
+			if ($Type == 'publish')	$where = 'Published > 0';
+			if ($DeptID != -1)
+				$where .= ' And DeptID='.$DeptID;
+			// if ($Column != -1)
+			if(!is_numeric($Column)){
+				switch ($Column) {
+					case 'xw': $where .= ' And ColumnID in (1,2,3)'; break;
+					case 'zx': $where .= ' And ColumnID in (4,5,6,7,8)'; break;
+					case '1': $where .= ' And ColumnID in (1,2,3,4,5,6,7,8)'; break;
+				}
+			}
+			else if ($Column != -1)
+				$where .= ' And ColumnID='.$Column;
+			if ($UserID != -1)
+				$where .= ' And WriterID='.$UserID;
+
+			// $order = "WriteTime DESC";
+			$select->from('article', '*')
+			->where($where)
+			->order('WriteTime DESC');
+			// $sql = $select->__toString();
+			$result = $ab->fetchAll($select);  
+
+			return $result;
+		}
+
 		/**
 		* 查找文章 用于列表
 		*/
