@@ -29,7 +29,7 @@
 		}
 
 		/**
-		* s删除选定的图片
+		* 删除选定的图片
 		*
 		*/
 		public function delImageInfo($imageName){

@@ -50,14 +50,14 @@
     }
     if (isset($ColumnCode)) {
       switch ($ColumnCode) {
-        case 'xw': $ClassListxw = " class=\"current\""; break;
-        case 'xy': $ClassListxy = " class=\"current\""; break;
-        case 'tx': $ClassListtx = " class=\"current\""; break;
-        case 'xs': $ClassListxs = " class=\"current\""; break;
-        case 'jy': $ClassListjy = " class=\"current\""; break;
-        case 'qg': $ClassListqg = " class=\"current\""; break;
-        case 'tz': $ClassListtz = " class=\"current\""; break;
-        case 'ky': $ClassListky = " class=\"current\""; break;
+        case '1': $ClassListxw = " class=\"current\""; break;
+        case '2': $ClassListxy = " class=\"current\""; break;
+        case '3': $ClassListtx = " class=\"current\""; break;
+        case '4': $ClassListxs = " class=\"current\""; break;
+        case '5': $ClassListjy = " class=\"current\""; break;
+        case '6': $ClassListqg = " class=\"current\""; break;
+        case '7': $ClassListtz = " class=\"current\""; break;
+        case '8': $ClassListky = " class=\"current\""; break;
         default: break;
       }
     }
@@ -152,14 +152,14 @@
                 if(!empty($DeptCode)) $Dept = '/dept/'.$DeptCode;
                 else $Dept = null;
             ?>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/xw"<?=$ClassListxw?>>新闻</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/xy"<?=$ClassListxy?>>学院</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/tx"<?=$ClassListtx?>>团学</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/xs"<?=$ClassListxs?>>学术</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/jy"<?=$ClassListjy?>>就业</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/qg"<?=$ClassListqg?>>勤工</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/tz"<?=$ClassListtz?>>通知</a></li>
-            <li><a href="/admin/listarticle<?=$Dept?>/column/ky"<?=$ClassListky?>>考研</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/1"<?=$ClassListxw?>>新闻</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/2"<?=$ClassListxy?>>学院</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/3"<?=$ClassListtx?>>团学</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/4"<?=$ClassListxs?>>活动</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/5"<?=$ClassListjy?>>学术</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/6"<?=$ClassListqg?>>就业</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/7"<?=$ClassListtz?>>考研</a></li>
+            <li><a href="/admin/listarticle<?=$Dept?>/column/8"<?=$ClassListky?>>勤工</a></li>
           </ul>
         </li>
 
