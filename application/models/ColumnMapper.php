@@ -17,17 +17,17 @@
 		}
 
 		/* 根据栏目Code查找相关信息 */
-		public function findColumnByCode($ColumnCode)
+		public function findColumnByCode($ColumnID)
 		{
 			$ab = $this->db->getAdapter();
-			if(!is_numeric($Column)){
-				switch ($ColumnCode) {
+			if(!is_numeric($ColumnID)){
+				switch ($ColumnID) {
 					case 'xw': $where = $ab->quoteInto('ColumnID in (1,2,3)'); break;
 					case 'zx': $where = $ab->quoteInto('ColumnID in (4,5,6,7,8)'); break;
 				}
 				
 			} else {
-			$where = $ab->quoteInto('ColumnCode = ?', $ColumnCode);
+				$where = $ab->quoteInto('ColumnID = ?', $ColumnID);
 			}
         	$arr = $this->db->fetchAll($where)->toArray();
 

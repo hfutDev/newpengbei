@@ -75,10 +75,8 @@ class AdminController extends Zend_Controller_Action
 		}
 
 		//获取栏目信息
-		$ColumnCode=$this->_request->getParam("column");
-		$ColumnMapper = new Application_Model_ColumnMapper();
-		$arrColumn = $ColumnMapper->findColumnByCode($ColumnCode);
-		if(!empty($arrColumn)) $Column = $arrColumn[0]['ColumnID'];
+		$ColumnID=$this->_request->getParam("column");
+		if($ColumnID) $Column = $ColumnID;
 		else $Column = -1; 		//如果没有指定栏目信息，默认查找所有栏目文章（-1代表所有栏目）
 
 		//判断当前用户能获取文章的权限
@@ -147,9 +145,9 @@ class AdminController extends Zend_Controller_Action
 			}
 		}
 
-		$ColumnCode=$this->_request->getParam("column");
+		$ColumnId=$this->_request->getParam("column");
 		$ColumnMapper = new Application_Model_ColumnMapper();
-		$arrColumn = $ColumnMapper->findColumnByCode($ColumnCode);
+		$arrColumn = $ColumnMapper->findColumnByCode($ColumnId);
 		if(!empty($arrColumn)) $this->view->ListTitle .= $arrColumn[0]['ColumnName'];
 		else $this->view->ListTitle .= "全部文章";
 
@@ -284,7 +282,8 @@ class AdminController extends Zend_Controller_Action
 			$filetmp = $parseImg->resize_image($fileInfo['imageFile']['name'], $fileInfo['imageFile']['tmp_name'], '480', '280');
 			imagedestroy($fileInfo['imageFile']['tmp_name']);
 			//获取后缀名，这里imageFile为上传表单file控件的name
-			$ext = explode(".",$fileInfo['imageFile']['name'])[1];
+			$ext = explode(".",$fileInfo['imageFile']['name']);
+			$ext = $ext[1];
 			//定义生成目录
 			$dir = './upload' . date('/Y/m/');
 			//文件重新命名
@@ -294,8 +293,16 @@ class AdminController extends Zend_Controller_Action
 			 
 			//如果目录不存在则创建目录
 			if (!file_exists($dir)) {
-				mkdir($dir, 0, true);
+				mkdir($dir, 0777, true);
 			}
+			//将图片正式写入
+			$pass = imagejpeg($filetmp,$dir.'/'.$filename,100);
+			if(!$pass){
+				imagedestroy($filetmp);
+				echo "<script>alert('图片资源上传失败，请重新尝试');location.href = '/admin/imageupload';</script>";
+				exit();
+			}
+			imagedestroy($filetmp);
 			//将图片信息插入数据库
 			
 			$i = $ArticleMapper->uploadImageInfo($filename, $_SESSION['user']['RealName'], $deptid);
@@ -303,9 +310,7 @@ class AdminController extends Zend_Controller_Action
 				echo "<script>alert('图片信息上传失败，请重新尝试');location.href = '/admin/imageupload';</script>";
 				exit();
 			}
-			//将图片正式写入
-			imagejpeg($filetmp,$dir.'/'.$filename,100);
-			imagedestroy($filetmp);
+			
 			
 			echo "<script>alert('上传成功！');location.href = '/admin/imageupload';</script>";
 		} else {
