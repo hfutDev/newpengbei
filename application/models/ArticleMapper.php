@@ -188,12 +188,13 @@
 				switch ($Column) {
 					case 'xw': $where .= ' And ColumnID in (1,2,3)'; break;
 					case 'zx': $where .= ' And ColumnID in (4,5,6,7,8)'; break;
+					case '1': $where .= ' And ColumnID in (1,2,3,4,5,6,7,8)'; break;
 				}
 			}
 			else if ($Column != -1)
 				$where .= ' And ColumnID='.$Column;
 			if ($UserID != -1)
-				$where .= ' And WriterID=?'.$UserID;
+				$where .= ' And WriterID='.$UserID;
 
 			// $order = "WriteTime DESC";
 			$select->from('article', array('ID','ColumnID','DeptID','Title','PublishTime'))
