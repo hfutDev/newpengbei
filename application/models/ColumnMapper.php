@@ -27,7 +27,7 @@
 				}
 				
 			} else {
-			$where = $ab->quoteInto('ColumnID = ?', $ColumnID);
+				$where = $ab->quoteInto('ColumnID = ?', $ColumnID);
 			}
         	$arr = $this->db->fetchAll($where)->toArray();
 
