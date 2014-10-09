@@ -167,4 +167,62 @@ $(document).ready(function (){
             $(this).css("display","none");
         });
     });
+
+
+    //全景
+    for(var k=0;k<8;k++){
+        var fulldata;
+        switch(k){
+            case 0:
+                fulldata = jsonData.tz;
+                break;
+            case 1:
+                fulldata = jsonData.xs;
+                break;
+            case 2:
+                fulldata = jsonData.jy;
+                break;
+            case 3:
+                fulldata = jsonData.ky;
+                break;
+            case 4:
+                fulldata = jsonData.qg;
+                break;
+            case 5:
+                fulldata = jsonData.yw;
+                break;
+            case 6:
+                fulldata = jsonData.xy;
+                break;
+            case 7:
+                fulldata = jsonData.tx;
+                break;
+            default:
+                console.log('Error!');
+        }
+        $.each(fulldata,function (index,item){
+            var date = new Date(parseFloat(item.PublishTime)*1000);
+            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>';
+            $('#full-ul>li').eq(k).children().append(newDOM);
+            if (index>=7) {
+                return false;
+            };
+        });
+    }
+
+    $('#full').click(function () {
+        for(var n=0;n<8;n++){
+            $('#full-ul>li').eq(n).css("opacity","0");
+        }
+        $('#bg').fadeIn();
+        $('#full-ul').fadeIn();
+        for(var n=0;n<8;n++){
+            $('#full-ul>li').eq(n).delay(n*140).animate({"opacity":"1"},250);
+        }
+    });
+
+    $('#close').click(function () {
+        $('#bg').fadeOut();
+        $('#full-ul').fadeOut();
+    });
 });
