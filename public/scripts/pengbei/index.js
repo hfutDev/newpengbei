@@ -45,19 +45,21 @@ $(document).ready(function (){
 
     $('.xinwen>div>.title-list').empty();
     $.each(jsonData.yw,function (index,item){
-        if (index<10) {
-            var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-            $('.xinwen>div>.title-list').append(newDOM);
+        var date = new Date(parseFloat(item.PublishTime)*1000);
+        var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+        $('.xinwen>div>.title-list').append(newDOM);
+        if (index>=9) {
+            return false;
         };
     });
 
     $('.zixun>div>.title-list').empty();
     $.each(jsonData.tz,function (index,item){
-        if (index<10) {
-            var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-            $('.zixun>div>.title-list').append(newDOM);
+        var date = new Date(parseFloat(item.PublishTime)*1000);
+        var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+        $('.zixun>div>.title-list').append(newDOM);
+        if (index>=9) {
+            return false;
         };
     });
 
@@ -102,13 +104,13 @@ $(document).ready(function (){
             $(this).parent().addClass("active");
             $(this).parent().nextAll().removeClass("active");
             $(this).parent().prevAll().removeClass("active");
-            var thisCkick = $(this);
+            var thisClick = $(this);
 
-            thisCkick.parent().parent().next().empty();
+            thisClick.parent().parent().next().empty();
 
             var jsondata;
-            switch(thisCkick.html()){
-                case "通知":
+            switch(thisClick.html()){
+                case "活动":
                     jsondata = jsonData.tz;
                     break;
                 case "学术":
@@ -123,7 +125,7 @@ $(document).ready(function (){
                 case "勤工":
                     jsondata = jsonData.qg;
                     break;
-                case "要闻":
+                case "校内":
                     jsondata = jsonData.yw;
                     break;
                 case "学院":
@@ -137,10 +139,11 @@ $(document).ready(function (){
             }
 
             $.each(jsondata,function (index,item){
-                if (index<10) {
-                    var date = new Date(parseFloat(item.PublishTime)*1000);
-                    var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
-                    thisCkick.parent().parent().next().append(newDOM);
+                var date = new Date(parseFloat(item.PublishTime)*1000);
+                var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+                thisClick.parent().parent().next().append(newDOM);
+                if (index>=9) {
+                    return false;
                 };
             });
         });

@@ -62,10 +62,20 @@
     </ul>
     <div id="article">
         <h1 class="green"><?=$Title?></h1>
-        <span><?=$Author?>&nbsp;|&nbsp;<?=$PublishTime?>&nbsp;|&nbsp;<span class="green"><?=$Click?></span>views</span>
+        <span><?=$DeptName?>&nbsp;|&nbsp;<?=$Author?>&nbsp;|&nbsp;<?=$PublishTime?>&nbsp;|&nbsp;<span class="green"><?=$Click?></span>views</span>
         <div class="hr"></div>
         <div>
             <?=$Article?>
         </div>
     </div>
 </div>
+
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script>
+    var h = $(window).height() - $(".main").height() - 152;
+    if(h>0){
+        console.log(h);
+        h = h + $("#article").height()+14;
+        $('#article').css("height",h+"px");
+    }
+</script>
