@@ -1,56 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dcbe4279-8773-43b8-9099-860393c1ed93" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\10581411752392.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\11801411750846.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\16381411750480.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\19391411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\2271411751769.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\23211411754026.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\24931411752203.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\25011411749428.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\25351411752203.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\25491411754026.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\25621411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\33381411748947.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\34141411750728.JPG" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\3581411749613.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\3761411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\38451411750543.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\38681411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\43171411750193.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\44211411750888.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\44911411752305.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\45621411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\46281411749614.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\4631411754026.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\46931411753922.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\53471411752204.png" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\56361411752132.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\58581411749755.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\59351411749130.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\60751411749754.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\61121411750041.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\64011411752114.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\73711411750728.JPG" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\75451411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\77981411749177.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\80601411748947.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\81321411748947.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\82121411748947.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\86611411749320.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\87951411749025.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\89061411749248.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\90801411753922.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\95141411750845.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\96951411750889.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\97111411754026.jpg" afterPath="" />
-      <change type="DELETED" beforePath="D:\wamp\www\newpengbei\public\ueditor\php\upload\98281411748947.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/ArticleMapper.php" afterPath="$PROJECT_DIR$/application/models/ArticleMapper.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/layouts/scripts/pengbei.phtml" afterPath="$PROJECT_DIR$/application/layouts/scripts/pengbei.phtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="dcbe4279-8773-43b8-9099-860393c1ed93" name="Default" comment="" />
     <ignored path="newpengbei.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -97,8 +48,8 @@
       <file leaf-file-name="application.ini" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2970297" vertical-offset="0" max-vertical-offset="660">
-              <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.5610561" vertical-offset="0" max-vertical-offset="660">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -385,7 +336,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -480,8 +431,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/configs/application.ini">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2970297" vertical-offset="0" max-vertical-offset="660">
-          <caret line="9" column="49" selection-start-line="9" selection-start-column="49" selection-end-line="9" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.5610561" vertical-offset="0" max-vertical-offset="660">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
