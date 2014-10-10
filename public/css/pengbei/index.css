@@ -273,6 +273,11 @@
 }
 
 #full-ul>li>ul>li>div>span>a{
+    font-size: 14px;
+    color: #747474;
+}
+
+#full-ul>li>ul>li>div>span>a{
     width: 154px!important;
     display: inline-block;
     overflow: hidden;

@@ -174,28 +174,28 @@ $(document).ready(function (){
         var fulldata;
         switch(k){
             case 0:
-                fulldata = jsonData.tz;
-                break;
-            case 1:
-                fulldata = jsonData.xs;
-                break;
-            case 2:
-                fulldata = jsonData.jy;
-                break;
-            case 3:
-                fulldata = jsonData.ky;
-                break;
-            case 4:
-                fulldata = jsonData.qg;
-                break;
-            case 5:
                 fulldata = jsonData.yw;
                 break;
-            case 6:
+            case 1:
                 fulldata = jsonData.xy;
                 break;
-            case 7:
+            case 2:
                 fulldata = jsonData.tx;
+                break;
+            case 3:
+                fulldata = jsonData.tz;
+                break;
+            case 4:
+                fulldata = jsonData.xs;
+                break;
+            case 5:
+                fulldata = jsonData.jy;
+                break;
+            case 6:
+                fulldata = jsonData.ky;
+                break;
+            case 7:
+                fulldata = jsonData.qg;
                 break;
             default:
                 console.log('Error!');
@@ -225,4 +225,19 @@ $(document).ready(function (){
         $('#bg').fadeOut();
         $('#full-ul').fadeOut();
     });
+
+    $("#full-ul>li").hover(
+        function(){
+            $(this).css("background-color","#297378");
+            $(this).find('p').css("color","#fff");
+            $(this).find('span').css("color","#fff");
+            $(this).find('a').css("color","#fff");
+        },
+        function(){
+            $(this).css("background-color","#e7ebeb");
+            $(this).find('p').css("color","#747474");
+            $(this).find('span').css("color","#747474");
+            $(this).find('a').css("color","#747474");
+        }
+    );
 });
