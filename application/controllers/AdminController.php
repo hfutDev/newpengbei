@@ -194,7 +194,7 @@ class AdminController extends Zend_Controller_Action
 				exit;
 			}
 			//置顶判断
-			if ($_SESSION['user']['Type'] != 3)
+			/*if ($_SESSION['user']['Type'] != 3)
 			{
 				if ($this->getRequest()->getParam('topatdept') == "on") $TopAtDept=1;
 				else $TopAtDept=0;
@@ -205,7 +205,21 @@ class AdminController extends Zend_Controller_Action
 			} else {
 				$TopAtDept=0;
 				$TopAtAll=0;
-			}
+			}*/
+			$top=$this->getRequest()->getParam('topatall');
+			//print_r($top);
+			//exit();
+			if ($top == "on") {
+				# code...
+				$TopAtAll=1;
+			}else{
+				$TopAtAll=0;
+			} 
+			if ($this->getRequest()->getParam('topatdept') == "on"){
+				$TopAtDept=1;
+			} else{
+				$TopAtDept=0;
+			} 
 			//发帖时间
 			if (!empty($ID))
 				$WriteTime = $this->_request->getParam("writetime");

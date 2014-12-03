@@ -200,6 +200,7 @@
 			$select->from('article', array('ID','ColumnID','DeptID','Title','PublishTime'))
 			->where($where)
 			->order('WriteTime DESC');
+			//->limit(190);
 			// $sql = $select->__toString();
 			$result = $ab->fetchAll($select);  
 
@@ -239,6 +240,25 @@
 			return $result;
 		}
 
+				/**
+		* 查询首页置顶的文章，用于首页列表
+		*/
+		public function findTopAtAllarticle(){
+			//select ID,Title,PublishTime form article where TopAtAll=1 order by PublishTime DESC limite 0,8;
+			//select ID,Title,PublishTime from article where TopAtAll=1 order by PublishTime DESC limit 0,8;
+			$ab = $this->db->getAdapter();
+			$select = $ab->select();
+			$where='TopAtAll=1 and Published>0';
+		
+			$select->from('article', array('ID','Title','ImgUrl'))
+			->where($where)
+			->order('PublishTime DESC')
+			->limit(10);
+			// $sql = $select->__toString();
+			$result = $ab->fetchAll($select);  
+
+			return $result;
+		}
 		/**
 		* 查找文章 用于列表
 		*/
@@ -346,7 +366,6 @@
 			
 			return $res;
 		}
-
 		
 		/**
 		* 判断文章置顶数目是否超过规定值

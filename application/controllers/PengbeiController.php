@@ -5,6 +5,7 @@ class PengbeiController extends Zend_Controller_Action
 
 	public function init()
 	{
+		
 		$this->_helper->layout->setLayout('pengbei');
 	}
 
@@ -20,6 +21,7 @@ class PengbeiController extends Zend_Controller_Action
 		$arrListczzl = $ArticleMapper->findArticleForList('publish',-1,4,-1);
 		$arrListcysh = $ArticleMapper->findArticleForList('publish',-1,5,-1);
 		$arrListcgxy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
+	
 
 		$this->view->arrListrdxw = $arrListrdxw;
 		$this->view->arrListbbfc = $arrListbbfc;
@@ -34,6 +36,8 @@ class PengbeiController extends Zend_Controller_Action
 		$this->view->PageType = "index";
 
 		$ArticleMapper = new Application_Model_ArticleMapper();
+		$arrListTop=$ArticleMapper->findTopAtAllarticle();
+	
 		$arrListyw = $ArticleMapper->findArticleForList('publish',-1,1,-1);
 		$arrListxy = $ArticleMapper->findArticleForList('publish',-1,2,-1);
 		$arrListtx = $ArticleMapper->findArticleForList('publish',-1,3,-1);
@@ -42,8 +46,10 @@ class PengbeiController extends Zend_Controller_Action
 		$arrListjy = $ArticleMapper->findArticleForList('publish',-1,6,-1);
 		$arrListky = $ArticleMapper->findArticleForList('publish',-1,7,-1);
 		$arrListqg = $ArticleMapper->findArticleForList('publish',-1,8,-1);
+		
 
 		$arrListAjax = array(
+		'top'=>$arrListTop,
 		'yw' =>	$arrListyw,
 		'xy' =>	$arrListxy,
 		'tx' =>	$arrListtx,

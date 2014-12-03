@@ -64,38 +64,38 @@ $(document).ready(function (){
     });
 
     //Macbook Air内容切换
-    $('.xinwen').before($('.zixun').clone(true));
+    // $('.xinwen').before($('.zixun').clone(true));
 
-    $('#prev').click(function(){
-        $('#ul').animate({"left":"0px"},function () {
-            var side = $('#ul>li:eq(0)').clone(true);
-            var middle = $('#ul>li:eq(1)').clone(true);
-            $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");; 
-        });
-    });
+    // $('#prev').click(function(){
+    //     $('#ul').animate({"left":"0px"},function () {
+    //         var side = $('#ul>li:eq(0)').clone(true);
+    //         var middle = $('#ul>li:eq(1)').clone(true);
+    //         $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");; 
+    //     });
+    // });
 
-    $('#next').click(function(){
-        $('#ul').animate({"left":"-1260px"},function () {
-            var side = $('#ul>li:eq(0)').clone(true);
-            var middle = $('#ul>li:eq(1)').clone(true);
-            $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");; 
-        });
-    });
+    // $('#next').click(function(){
+    //     $('#ul').animate({"left":"-1260px"},function () {
+    //         var side = $('#ul>li:eq(0)').clone(true);
+    //         var middle = $('#ul>li:eq(1)').clone(true);
+    //         $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");; 
+    //     });
+    // });
 
 
     //加载页面时启动定时器
-    function next(){
-        $('#next').click();
-    }
+    // function next(){
+    //     $('#next').click();
+    // }
 
-    var timer2=setInterval(next, 5000);
+    // var timer2=setInterval(next, 5000);
     
-    $('#ul').mouseover(function(){
-        clearInterval(timer2);
-    });
-    $('#ul').mouseout(function(){
-        timer2=setInterval(next, 3500);
-    });
+    // $('#ul').mouseover(function(){
+    //     clearInterval(timer2);
+    // });
+    // $('#ul').mouseout(function(){
+    //     timer2=setInterval(next, 3500);
+    // });
 
 
     //左侧栏目列表点击
@@ -148,26 +148,6 @@ $(document).ready(function (){
             });
         });
     });
-
-    //图片
-    $('.photo-ctrl li').each(function(index){
-        $(this).click(function () {
-            clearInterval(timer2);
-            if(parseInt($('.photo').attr("src").substring(23,24)) != index+1){
-                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
-            } else{
-                $('.photo').click();
-            }
-        })
-    });
-
-    $('.photo').click(function () {
-        timer2=setInterval(next, 3500);
-        $(this).animate({"opacity":"0"},250,function () {
-            $(this).css("display","none");
-        });
-    });
-
 
     //全景
     for(var k=0;k<8;k++){
