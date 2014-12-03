@@ -68,11 +68,11 @@
                                 ?>
                             </select>
                             <?php
-                            if ($_SESSION['user']['Type'] == 1) echo "&#12288;&#12288;
-                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatall\"".$TopAtAll.">首页置顶</label></span>&#12288;&#12288;
-                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\"".$TopAtDept.">学院置顶</label></span>";
-                            if ($_SESSION['user']['Type'] == 2) echo "&#12288;&#12288;
-                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\"".$TopAtDept.">置顶</label></span>"; ?>
+                             echo "&#12288;&#12288;
+                            <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatall\"".$TopAtAll.">首页置顶</label></span>&#12288;&#12288;"
+                           // <span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\"".$TopAtDept.">学院置顶</label></span>";
+                           // if ($_SESSION['user']['Type'] == 2) echo "&#12288;&#12288;
+                            //<span><label style=\"display: inline;font-weight: normal;\"><input type=\"checkbox\" name=\"topatdept\"".$TopAtDept.">置顶</label></span>"; ?>
                         </p>
                         <p style="display: none;">发帖时间:<input type="text" name="writetime" value="<?=$WriteTime?>"></p>
                         <?php if ($_SESSION['user']['Type'] != 3) echo
