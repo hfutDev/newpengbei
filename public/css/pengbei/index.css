@@ -28,7 +28,6 @@
 	display: block;
 	line-height: 100%;
 	padding-bottom: 220px;
-	position: relative;
 	background-color: #2dbdba;
 }
 .background{
@@ -41,13 +40,13 @@
 	filter:alpha(opacity=0);
 }
 .header-phone{
-	width: 870px;
-	height: 430px;
+	width: 640px;
+	height: 340px;
 	margin-left: -340px;
-	top: 160px;
+	top: 240px;
 	z-index: 4;
-	background: url(../../images/pengbei/sprites.png);
-	background-position: 0 -457px; width: 870px; height: 430px;
+	background: url(../../images/pengbei/phone.png);
+	/*background-position: 0 -457px; width: 870px; height: 430px;*/
 }
 .background-1{
 	z-index: 3;
@@ -70,96 +69,154 @@
 
 #new-content{
 	position: absolute;
-	width: 630px;
-	height: 338px;
-	top: 34px;
-	left: 108px;
-	/*overflow: hidden;*/
+	width: 480px;
+	height: 296px;
+	top: 22px;
+	left: 84px;
+	background: #000;
+	overflow: hidden;
+}
+#top{
+	/*width: 10000px;*/
+	height: 296px;
+	left: 0px;
+	position: absolute;
+}
+#top>li{
+	float: left;
+	/*position: absolute;*/
+}
+#top>li>a>img{
+	width: 480px;
+	height: 296px;
+}
+.top-link{
+	background:rgba(0, 0, 0, 0.6)!important;
+    filter:Alpha(opacity=60);
+    color:#fff;
+    font-size: 18px;
+	position: absolute;
+	bottom: 0;
+	padding: 15px 20px;
+	width: 440px;
+    overflow: hidden;
+}
+#link{
+	display: inline-block;
+	width: 400px;
+	line-height: 100%;
+	white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+#count{
+	line-height: 100%;
+	width: 40px;
+	float: right;
+}
+#new-content>div{
+	width: 40px;
+	height: 60px;
+	z-index: 6;
+	position: absolute;
+	top: 50%;
+	cursor: pointer;
+	margin-top: -20px;
+}
+#new-content>div#prev{
+	left: 15px;
+	background: url(../../images/pengbei/prev.png);
+}
+#new-content>div#next{
+	right: 15px;
+	background: url(../../images/pengbei/next.png);
 }
 #ul{
-	width: 1890px;
-	height: 322px;
-	padding-top:16px;
-	position: absolute;
-	left: -630px;
+	width: 1100px;
+	height: 380px;
+	margin: 0 auto;
+	position: relative;
+	top: 170px;
+	z-index: 4;
 }
 #ul>li{
 	float: left;
 }
 #ul>li,#ul>li>div{
-	width: 630px;
-	height: 338px;	
+	width: 220px;
+	height: 340px;	
 }
 .list>div>ul{
 	float: left;
-
 }
 
 .list>div>ul.left-list{
-	margin-left: 62px;
+	/*margin-left: 62px;*/
 }
 .list>div>ul.left-list>h1{
 	font-size: 22px;
-	font-weight: 100;
+	font-weight: 500;
 }
 .list>div>ul.left-list>li{
-	width: 54px;
+	width: 32px;
 	height: 28px;
-	padding-left: 12px;
+	float: left;
+	padding-right: 12px;
 	margin: 5px 0;
 }
 .list>div>ul.left-list>.list-h1{
-	padding-left: 6px;
+/*	padding-left: 6px;
 	padding-bottom: 10px;
-	margin: 16px 0 6px 0;
+	margin: 16px 0 6px 0;*/
 }
 .list>div>ul.left-list>li>a{
 	cursor: pointer;
 	font-size: 16px;
 	line-height: 28px;
-	color: #a6b7b8;
+	color: #fff;
 }
-.list>div>ul.left-list>li.active{
-	background: url(../../images/pengbei/sprites.png);
-	background-position: 0 -379px; width: 66px; height: 28px;
+.list>div>ul.left-list>li.active>a{
+	color: #2105c7;
 }
 
 .list>div>ul.title-list{
-	margin: 52px 0 0 26px;
+	background:rgba(255, 255, 255, 0.8)!important;
+    filter:Alpha(opacity=80);
+    background:#fff;
+    padding: 10px 5px;
+    border-radius: 8px;
+}
+
+.list>div>ul.title-list li{
+	padding: 6px 0;
+	border-bottom: 1px #afc9c8 solid;
 }
 .list>div>ul.title-list>li>div>span>a{
 	font-size: 14px;
 	line-height: 20px;
-	color: #ffffff;
+	color: #1b2121;
 	letter-spacing: 1px;
-	width: 302px;
+	width: 170px;
 	display: inline-block;
 	overflow: hidden;
 	white-space: nowrap;
     text-overflow: ellipsis;
 }
 .list>div>ul.title-list>li>div>span.date{
+	color: #1b2121;
 	position: relative;
 	top: -5px;
 	*+top: 0px;
 }
 
-.arrow{
+.xinwen.list{
 	position: absolute;
-	cursor: pointer;
-	width: 14px;
-	height: 26px;
-	top: 156px;
+	left: 0;
 }
-#prev{
-	background: url(../../images/pengbei/sprites.png);
-	background-position: 0 -1013px; width: 14px; height: 26px;
-	left: 10px;
-}
-#next{
-	background: url(../../images/pengbei/sprites.png);
-	background-position: 0 -937px; width: 14px; height: 26px;
-	right: 10px;
+
+.zixun.list{
+	position: absolute;
+	right: 0;
 }
 
 #footer-link{
@@ -189,6 +246,7 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    z-index: 5;
     cursor: pointer;
 }
 

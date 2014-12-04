@@ -12,8 +12,8 @@ $(document).ready(function (){
 	var i = 0;
 	var interval;
     //配置动画的参数
-    var lef = ["-435px","-55%","-45%","-50%"];
-    var lef2 = ["-435px","-50%","-50%","-50%"];
+    var lef = ["-322px","-55%","-45%","-50%"];
+    var lef2 = ["-322px","-50%","-50%","-50%"];
     function run() {
     	timer = setInterval(move,250);
     }
@@ -43,7 +43,6 @@ $(document).ready(function (){
     var Json = $.ajax({url:"/pengbei/indexdata",async:false});
     var jsonData = JSON.parse(Json.responseText);
 
-    $('.xinwen>div>.title-list').empty();
     $.each(jsonData.yw,function (index,item){
         var date = new Date(parseFloat(item.PublishTime)*1000);
         var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
@@ -53,7 +52,6 @@ $(document).ready(function (){
         };
     });
 
-    $('.zixun>div>.title-list').empty();
     $.each(jsonData.tz,function (index,item){
         var date = new Date(parseFloat(item.PublishTime)*1000);
         var newDOM = '<li><div><span><a href="pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
@@ -62,40 +60,6 @@ $(document).ready(function (){
             return false;
         };
     });
-
-    //Macbook Air内容切换
-    // $('.xinwen').before($('.zixun').clone(true));
-
-    // $('#prev').click(function(){
-    //     $('#ul').animate({"left":"0px"},function () {
-    //         var side = $('#ul>li:eq(0)').clone(true);
-    //         var middle = $('#ul>li:eq(1)').clone(true);
-    //         $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");; 
-    //     });
-    // });
-
-    // $('#next').click(function(){
-    //     $('#ul').animate({"left":"-1260px"},function () {
-    //         var side = $('#ul>li:eq(0)').clone(true);
-    //         var middle = $('#ul>li:eq(1)').clone(true);
-    //         $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");; 
-    //     });
-    // });
-
-
-    //加载页面时启动定时器
-    // function next(){
-    //     $('#next').click();
-    // }
-
-    // var timer2=setInterval(next, 5000);
-    
-    // $('#ul').mouseover(function(){
-    //     clearInterval(timer2);
-    // });
-    // $('#ul').mouseout(function(){
-    //     timer2=setInterval(next, 3500);
-    // });
 
 
     //左侧栏目列表点击
@@ -189,6 +153,55 @@ $(document).ready(function (){
             };
         });
     }
+
+    console.log(jsonData.top);
+
+    $.each(jsonData.top,function (index,item){
+        var imgUrl = item.ImgUrl.split(",")[0];
+        console.log(imgUrl);
+        var newDOM = '<li><a href="article/id/' + item.ID + '" target="_blank"><img src=' + imgUrl + '></a></li>';
+        $('#top').append(newDOM);
+    });
+
+    var count = 0;//图片轮播计数
+    var photoCount = $('#top li').length;
+    $('#top').css("width",photoCount*480+"px");
+
+    $('.top-link').attr("href","article/id/"+jsonData.top[count].ID);
+    $('#link').text(jsonData.top[count].Title);
+    $('#count').text("(" + (count+1) + "/" + photoCount + ")");
+
+    $('#next').click(function () {
+        count = count++ >= photoCount-1?0:count++;
+        $('.top-link').attr("href","article/id/"+jsonData.top[count].ID);
+        $('#link').text(jsonData.top[count].Title);
+        $('#count').text("(" + (count+1) + "/" + photoCount + ")");
+        $('#top').animate({"left":count*(-480)+"px"},400);
+    });
+
+    $('#prev').click(function () {
+        count = count-- <= 0?photoCount-1:count--;
+        $('.top-link').attr("href","article/id/"+jsonData.top[count].ID);
+        $('#link').text(jsonData.top[count].Title);
+        $('#count').text("(" + (count+1) + "/" + photoCount + ")");
+        $('#top').animate({"left":count*(-480)+"px"},400);
+    });
+
+        //加载页面时启动定时器
+    function next(){
+        $('#next').click();
+    }
+
+    var timer1=setInterval(next, 5000);
+
+    $('#new-content').mouseover(function(){
+        clearInterval(timer1);
+    });
+    $('#new-content').mouseout(function(){
+        timer1=setInterval(next, 3500);
+    });
+
+
 
     $('#full').click(function () {
         for(var n=0;n<8;n++){

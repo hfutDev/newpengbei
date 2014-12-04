@@ -253,7 +253,7 @@
 			$select->from('article', array('ID','Title','ImgUrl'))
 			->where($where)
 			->order('PublishTime DESC')
-			->limit(10);
+			->limit(6);
 			// $sql = $select->__toString();
 			$result = $ab->fetchAll($select);  
 
