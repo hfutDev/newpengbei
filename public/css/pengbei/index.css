@@ -1,246 +1,267 @@
-*{
-	color: #fff;
-}
-#nav{
-	opacity: 0;
-	filter:alpha(opacity=0);
-}
-#loading{
-	display: block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	margin-left: -100px;
-	margin-top: -50px;
-	height: 100px;
-	width: 200px;
-	text-align: center;
-}
-.loading-char{
-	color: #cfcfcf;
-	font-size: 20px;
-	display: inline;
+* {
+    color: #fff;
 }
 
-#content{
-	height: 430px;
-	width: 100%;
-	display: block;
-	line-height: 100%;
-	padding-bottom: 220px;
-	background-color: #2dbdba;
-}
-.background{
-	position: absolute;
-	height: 341px;
-	width: 100%;
-	left: 50%;
-	margin-left: -50%;
-	opacity: 0;
-	filter:alpha(opacity=0);
-}
-.header-phone{
-	width: 640px;
-	height: 340px;
-	margin-left: -340px;
-	top: 240px;
-	z-index: 4;
-	background: url(../../images/pengbei/phone.png);
-	/*background-position: 0 -457px; width: 870px; height: 430px;*/
-}
-.background-1{
-	z-index: 3;
-	margin-left: -40%;
-	top: 180px;
-	background: url(../../images/pengbei/background-layer-1.png) no-repeat 50% 50%;
-}
-.background-2{
-	z-index: 2;
-	margin-left: -60%;
-	top: 180px;
-	background: url(../../images/pengbei/background-layer-2.png) no-repeat 50% 50%;
-}
-.background-3{
-	margin-left: -60%;
-	top: 180px;
-	z-index: 1;
-	background: url(../../images/pengbei/background-layer-3.png) no-repeat 50% 50%;
+#nav {
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
 
-#new-content{
-	position: absolute;
-	width: 480px;
-	height: 296px;
-	top: 22px;
-	left: 84px;
-	background: #000;
-	overflow: hidden;
+#loading {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -50px;
+    height: 100px;
+    width: 200px;
+    text-align: center;
 }
-#top{
-	/*width: 10000px;*/
-	height: 296px;
-	left: 0px;
-	position: absolute;
+
+.loading-char {
+    color: #cfcfcf;
+    font-size: 20px;
+    display: inline;
 }
-#top>li{
-	float: left;
-	/*position: absolute;*/
+
+#content {
+    height: 430px;
+    width: 100%;
+    display: block;
+    line-height: 100%;
+    padding-bottom: 220px;
+    background-color: #2dbdba;
 }
-#top>li>a>img{
-	width: 480px;
-	height: 296px;
+
+.background {
+    position: absolute;
+    height: 341px;
+    width: 100%;
+    left: 50%;
+    margin-left: -50%;
+    opacity: 0;
+    filter: alpha(opacity=0);
 }
-.top-link{
-	background:rgba(0, 0, 0, 0.6)!important;
-    filter:Alpha(opacity=60);
-    color:#fff;
+
+.background-1 {
+    z-index: 3;
+    margin-left: -40%;
+    top: 180px;
+    background: url(../../images/pengbei/background-layer-1.png) no-repeat 50% 50%;
+}
+
+.background-2 {
+    z-index: 2;
+    margin-left: -60%;
+    top: 180px;
+    background: url(../../images/pengbei/background-layer-2.png) no-repeat 50% 50%;
+}
+
+.background-3 {
+    margin-left: -60%;
+    top: 180px;
+    z-index: 1;
+    background: url(../../images/pengbei/background-layer-3.png) no-repeat 50% 50%;
+}
+
+#top {
+    height: 296px;
+    left: 0px;
+    position: absolute;
+}
+
+#top > li {
+    float: left;
+}
+
+#top > li > a > img {
+    width: 420px;
+    height: 260px;
+}
+
+.top-link {
+    background: rgba(0, 0, 0, 0.6) !important;
+    filter: Alpha(opacity=60);
+    color: #fff;
     font-size: 18px;
-	position: absolute;
-	bottom: 0;
-	padding: 15px 20px;
-	width: 440px;
+    position: absolute;
+    bottom: 0;
+    padding: 15px 20px;
+    width: 440px;
     overflow: hidden;
 }
-#link{
-	display: inline-block;
-	width: 400px;
-	line-height: 100%;
-	white-space: nowrap;
+
+#link {
+    display: inline-block;
+    width: 400px;
+    line-height: 100%;
+    white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-#count{
-	line-height: 100%;
-	width: 40px;
-	float: right;
-}
-#new-content>div{
-	width: 40px;
-	height: 60px;
-	z-index: 6;
-	position: absolute;
-	top: 50%;
-	cursor: pointer;
-	margin-top: -20px;
-}
-#new-content>div#prev{
-	left: 15px;
-	background: url(../../images/pengbei/prev.png);
-}
-#new-content>div#next{
-	right: 15px;
-	background: url(../../images/pengbei/next.png);
-}
-#ul{
-	width: 1100px;
-	height: 380px;
-	margin: 0 auto;
-	position: relative;
-	top: 170px;
-	z-index: 4;
-}
-#ul>li{
-	float: left;
-}
-#ul>li,#ul>li>div{
-	width: 220px;
-	height: 340px;	
-}
-.list>div>ul{
-	float: left;
+
+#count {
+    line-height: 100%;
+    width: 40px;
+    float: right;
 }
 
-.list>div>ul.left-list{
-	/*margin-left: 62px;*/
-}
-.list>div>ul.left-list>h1{
-	font-size: 22px;
-	font-weight: 500;
-}
-.list>div>ul.left-list>li{
-	width: 32px;
-	height: 28px;
-	float: left;
-	padding-right: 12px;
-	margin: 5px 0;
-}
-.list>div>ul.left-list>.list-h1{
-/*	padding-left: 6px;
-	padding-bottom: 10px;
-	margin: 16px 0 6px 0;*/
-}
-.list>div>ul.left-list>li>a{
-	cursor: pointer;
-	font-size: 16px;
-	line-height: 28px;
-	color: #fff;
-}
-.list>div>ul.left-list>li.active>a{
-	color: #2105c7;
+#ul #phone {
+    width: 560px;
+    height: 300px;
+    left: 274px;
+    top: 110px;
+    z-index: 4;
+    position: relative;
+    background: url(../../images/pengbei/phones.png);
 }
 
-.list>div>ul.title-list{
-	background:rgba(255, 255, 255, 0.8)!important;
-    filter:Alpha(opacity=80);
-    background:#fff;
+#phone #new-content {
+    position: absolute;
+    width: 420px;
+    height: 260px;
+    top: 21px;
+    left: 73px;
+    background: #000;
+    overflow: hidden;
+}
+
+#new-content > div {
+    width: 40px;
+    height: 60px;
+    z-index: 6;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+    margin-top: -20px;
+}
+
+#new-content > div#prev {
+    left: 15px;
+    background: url(../../images/pengbei/prev.png);
+}
+
+#new-content > div#next {
+    right: 15px;
+    background: url(../../images/pengbei/next.png);
+}
+
+#ul {
+    width: 1100px;
+    height: 380px;
+    margin: 0 auto;
+    position: relative;
+    top: 170px;
+    z-index: 4;
+}
+
+#ul > li {
+    float: left;
+}
+
+#ul > li, #ul > li > div {
+    width: 220px;
+    height: 340px;
+}
+
+.list > div > ul {
+    float: left;
+}
+
+.list > div > ul.left-list > h1 {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.list > div > ul.left-list > li {
+    width: 32px;
+    height: 28px;
+    float: left;
+    padding-right: 12px;
+    margin: 5px 0;
+}
+
+.list > div > ul.left-list > li > a {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 28px;
+    color: #fff;
+}
+
+.list > div > ul.left-list > li.active > a {
+    color: #2105c7;
+}
+
+.list > div > ul.title-list {
+    background: rgba(255, 255, 255, 0.8) !important;
+    filter: Alpha(opacity=80);
+    background: #fff;
+    width: 220px;
+    height: 340px;
     padding: 10px 5px;
     border-radius: 8px;
 }
 
-.list>div>ul.title-list li{
-	padding: 6px 0;
-	border-bottom: 1px #afc9c8 solid;
+.list > div > ul.title-list li {
+    padding: 6px 0;
+    border-bottom: 1px #afc9c8 solid;
 }
-.list>div>ul.title-list>li>div>span>a{
-	font-size: 14px;
-	line-height: 20px;
-	color: #1b2121;
-	letter-spacing: 1px;
-	width: 170px;
-	display: inline-block;
-	overflow: hidden;
-	white-space: nowrap;
+
+.list > div > ul.title-list > li > div > span > a {
+    font-size: 14px;
+    line-height: 20px;
+    color: #1b2121;
+    letter-spacing: 1px;
+    width: 183px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
 }
-.list>div>ul.title-list>li>div>span.date{
-	color: #1b2121;
-	position: relative;
-	top: -5px;
-	*+top: 0px;
+
+.list > div > ul.title-list > li > div > span.date {
+    color: #1b2121;
+    position: relative;
+    top: -5px;
+    *+top: 0px;
 }
 
-.xinwen.list{
-	position: absolute;
-	left: 0;
+.xinwen.list {
+    position: absolute;
+    left: 0;
 }
 
-.zixun.list{
-	position: absolute;
-	right: 0;
+.zixun.list {
+    position: absolute;
+    right: 0;
 }
 
-#footer-link{
-	width: 100%;
-	position: relative;
-	background-color: #658e9c;
-}
-#footer-link>ul{
-	padding-top: 14px;
-	height: 86px;
-	width: 900px;
-	margin: 0 auto;
-}
-#footer-link>ul>li{
-	float: left;
-	width: 150px;
-}
-#footer-link>ul>li>a{
-	font-size: 12px;
-	color: #ffffff;
-	line-height: 18px;
+#footer-link {
+    width: 100%;
+    position: relative;
+    background-color: #658e9c;
 }
 
-#full{
+#footer-link > ul {
+    padding-top: 14px;
+    height: 86px;
+    width: 900px;
+    margin: 0 auto;
+}
+
+#footer-link > ul > li {
+    float: left;
+    width: 150px;
+}
+
+#footer-link > ul > li > a {
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 18px;
+}
+
+#full {
     width: 50px;
     height: 50px;
     position: absolute;
@@ -250,20 +271,20 @@
     cursor: pointer;
 }
 
-#bg{
+#bg {
     width: 100%;
     height: 100%;
     min-width: 1000px;
     position: fixed;
     left: 0;
     top: 0;
-    background:rgba(0, 0, 0, 0.6)!important;
-    filter:Alpha(opacity=60);
-    background:#fff;
+    background: rgba(0, 0, 0, 0.6) !important;
+    filter: Alpha(opacity=60);
+    background: #fff;
     z-index: 9999;
 }
 
-#full-ul{
+#full-ul {
     width: 1040px;
     height: 600px;
     padding-top: 40px;
@@ -274,7 +295,7 @@
     margin-left: -520px;
 }
 
-#close{
+#close {
     width: 40px;
     height: 40px;
     background: url(../../images/pengbei/close.png);
@@ -284,7 +305,7 @@
     cursor: pointer;
 }
 
-#full-ul>li{
+#full-ul > li {
     float: left;
     padding: 20px;
     width: 204px;
@@ -294,30 +315,30 @@
     background-color: #e7ebeb;
 }
 
-#full-ul>li>ul>li>p{
+#full-ul > li > ul > li > p {
     font-size: 24px;
     color: #747474;
 }
 
-#full-ul>li>ul>li>div>span{
+#full-ul > li > ul > li > div > span {
     font-size: 14px;
     color: #747474;
 }
 
-#full-ul>li>ul>li>div>span>a{
+#full-ul > li > ul > li > div > span > a {
     font-size: 14px;
     color: #747474;
 }
 
-#full-ul>li>ul>li>div>span>a{
-    width: 154px!important;
+#full-ul > li > ul > li > div > span > a {
+    width: 154px !important;
     display: inline-block;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
 
-#full-ul>li>ul>li>div>span.date{
+#full-ul > li > ul > li > div > span.date {
     position: relative;
     top: -5px;
     *+top: 0px;

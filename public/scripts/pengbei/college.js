@@ -1,18 +1,18 @@
-$(document).ready(function (){
+$(document).ready(function () {
 
     //首页高度适应
     //818为页面最小高度
-    if($(window).height()>818){
-        var h = $(window).height()-818+430;
-        $('#content').css("height",h+"px");
+    if ($(window).height() > 818) {
+        var h = $(window).height() - 818 + 430;
+        $('#content').css("height", h + "px");
     }
 
     //页面load后ajax加载列表
-    var Json = $.ajax({url:"/pengbei/indexdata",async:false});
+    var Json = $.ajax({url: "/pengbei/indexdata", async: false});
     var jsonData = JSON.parse(Json.responseText);
 
     var deptId;
-    switch($('#college>p').html()){
+    switch ($('#college>p').html()) {
         case "机械与汽车工程学院":
             deptId = 1;
             break;
@@ -73,70 +73,39 @@ $(document).ready(function (){
         default:
             console.log('Error!');
     }
-    $('.xinwen>div>.title-list').empty();
     for (var i = 0; i < jsonData.yw.length; i++) {
-        if(jsonData.yw[i].DeptID == deptId){
+        if (jsonData.yw[i].DeptID == deptId) {
             var item = jsonData.yw[i];
-            var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>';
+            var date = new Date(parseFloat(item.PublishTime) * 1000);
+            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth() + 1) + '-' + date.getDate() + '</span></div></li>';
             $('.xinwen>div>.title-list').append(newDOM);
-        };
-        if ($('.xinwen>div>.title-list>li').length>9) {
+        }
+        ;
+        if ($('.xinwen>div>.title-list>li').length > 9) {
             break;
-        };
-    };
-
-
-    $('.zixun>div>.title-list').empty();
-    for (var i = 0; i < jsonData.tz.length; i++) {
-        if(jsonData.tz[i].DeptID == deptId){
-            var item = jsonData.tz[i];
-            var date = new Date(parseFloat(item.PublishTime)*1000);
-            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>';
-            $('.zixun>div>.title-list').append(newDOM);
-        };
-        if ($('.zixun>div>.title-list>li').length>9) {
-            break;
-        };
-    };
-
-    //Macbook Air内容切换
-    $('.xinwen').before($('.zixun').clone(true));
-
-    $('#prev').click(function(){
-        $('#ul').animate({"left":"0px"},function () {
-            var side = $('#ul>li:eq(0)').clone(true);
-            var middle = $('#ul>li:eq(1)').clone(true);
-            $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");;
-        });
-    });
-
-    $('#next').click(function(){
-        $('#ul').animate({"left":"-1260px"},function () {
-            var side = $('#ul>li:eq(0)').clone(true);
-            var middle = $('#ul>li:eq(1)').clone(true);
-            $('#ul').empty().append(middle).append(side).append($('#ul>li:eq(0)').clone(true)).css("left","-630px");;
-        });
-    });
-
-
-    //加载页面时启动定时器
-    function next(){
-        $('#next').click();
+        }
+        ;
     }
+    ;
 
-    var timer2=setInterval(next, 5000);
-
-    $('#ul').mouseover(function(){
-        clearInterval(timer2);
-    });
-    $('#ul').mouseout(function(){
-        timer2=setInterval(next, 3500);
-    });
+    for (var i = 0; i < jsonData.tz.length; i++) {
+        if (jsonData.tz[i].DeptID == deptId) {
+            var item = jsonData.tz[i];
+            var date = new Date(parseFloat(item.PublishTime) * 1000);
+            var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth() + 1) + '-' + date.getDate() + '</span></div></li>';
+            $('.zixun>div>.title-list').append(newDOM);
+        }
+        ;
+        if ($('.zixun>div>.title-list>li').length > 9) {
+            break;
+        }
+        ;
+    }
+    ;
 
 
     //左侧栏目列表点击
-    $(".left-list-link").each(function(index){
+    $(".left-list-link").each(function (index) {
         $(this).click(function () {
             $(this).parent().addClass("active");
             $(this).parent().nextAll().removeClass("active");
@@ -146,7 +115,7 @@ $(document).ready(function (){
             thisClick.parent().parent().next().empty();
 
             var jsondata;
-            switch(thisClick.html()){
+            switch (thisClick.html()) {
                 case "活动":
                     jsondata = jsonData.tz;
                     break;
@@ -176,37 +145,66 @@ $(document).ready(function (){
             }
 
             for (var i = 0; i < jsondata.length; i++) {
-                if(jsondata[i].DeptID == deptId){
+                if (jsondata[i].DeptID == deptId) {
                     var item = jsondata[i];
-                    var date = new Date(parseFloat(item.PublishTime)*1000);
-                    var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth()+1) + '-' + date.getDate() + '</span></div></li>'
+                    var date = new Date(parseFloat(item.PublishTime) * 1000);
+                    var newDOM = '<li><div><span><a href="/pengbei/article/id/' + item.ID + '" target="_blank">' + item.Title.replace(/<br>/g, "") + '</a></span><span class="date">&nbsp;' + (date.getMonth() + 1) + '-' + date.getDate() + '</span></div></li>'
                     thisClick.parent().parent().next().append(newDOM);
-                };
-                if (thisClick.parent().parent().next().children().length>9) {
+                }
+                ;
+                if (thisClick.parent().parent().next().children().length > 9) {
                     return false;
-                };
-            };
-        });
-
-    });
-
-    //图片
-    $('.photo-ctrl li').each(function(index){
-        $(this).click(function () {
-            clearInterval(timer2);
-            if(parseInt($('.photo').attr("src").substring(23,24)) != index+1){
-                $('.photo').attr("src","/images/pengbei/banner/"+(index+1)+".jpg").animate({"opacity":"0"},250).css("display","block").animate({"opacity":"1"},250);
-            } else{
-                $('.photo').click();
+                }
+                ;
             }
-        })
+            ;
+        });
+
     });
 
-    $('.photo').click(function () {
-        timer2=setInterval(next, 3500);
-        $(this).animate({"opacity":"0"},250,function () {
-            $(this).css("display","none");
-            $('.photo').attr("src","/images/pengbei/banner/0.jpg");
-        });
+    // console.log(jsonData.top);
+
+    $.each(jsonData.top, function (index, item) {
+        var imgUrl = item.ImgUrl.split(",")[0];
+        var newDOM = '<li><a href="/pengbei/article/id/' + item.ID + '" target="_blank"><img src=' + imgUrl + '></a></li>';
+        $('#top').append(newDOM);
+    });
+
+    var count = 0;//图片轮播计数
+    var photoCount = $('#top li').length;
+    $('#top').css("width", photoCount * 420 + "px");
+
+    $('.top-link').attr("href", "/pengbei/article/id/" + jsonData.top[count].ID);
+    $('#link').text(jsonData.top[count].Title);
+    $('#count').text("(" + (count + 1) + "/" + photoCount + ")");
+
+    $('#next').click(function () {
+        count = count++ >= photoCount - 1 ? 0 : count++;
+        $('.top-link').attr("href", "/pengbei/article/id/" + jsonData.top[count].ID);
+        $('#link').text(jsonData.top[count].Title);
+        $('#count').text("(" + (count + 1) + "/" + photoCount + ")");
+        $('#top').animate({"left": count * (-420) + "px"}, 400);
+    });
+
+    $('#prev').click(function () {
+        count = count-- <= 0 ? photoCount - 1 : count--;
+        $('.top-link').attr("href", "/pengbei/article/id/" + jsonData.top[count].ID);
+        $('#link').text(jsonData.top[count].Title);
+        $('#count').text("(" + (count + 1) + "/" + photoCount + ")");
+        $('#top').animate({"left": count * (-420) + "px"}, 400);
+    });
+
+    //加载页面时启动定时器
+    function next() {
+        $('#next').click();
+    }
+
+    var timer1 = setInterval(next, 5000);
+
+    $('#new-content').mouseover(function () {
+        clearInterval(timer1);
+    });
+    $('#new-content').mouseout(function () {
+        timer1 = setInterval(next, 3500);
     });
 });

@@ -248,7 +248,7 @@
 			//select ID,Title,PublishTime from article where TopAtAll=1 order by PublishTime DESC limit 0,8;
 			$ab = $this->db->getAdapter();
 			$select = $ab->select();
-			$where='TopAtAll=1 and Published>0';
+			$where="TopAtAll=1 and Published>0 and ImgUrl !='' ";
 		
 			$select->from('article', array('ID','Title','ImgUrl'))
 			->where($where)

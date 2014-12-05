@@ -1,87 +1,105 @@
-body{
-	background-image: url(../../images/pengbei/background-large.png);
-	position: relative;
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-}
-*{
-	color: #000;
-}
-#loading{
-	display: none;
-}
-#nav{
-	opacity: 1;
-}
-#header{
-	position: relative;
-	height: 70px;
-}
-.main{
-	position: relative;
-	width: 100%;
-}
-.main ul{
-	width: 100%;
-	height: 78px;
-}
-.main ul li{
-	width: 100%;
-	height: 23px;
-}
-#bread{
-	height: 32px;
-}
-.rung{
-	background: #638c0b;
-}
-.main ul li div{
-	width: 1000px;
-	margin: 0 auto;
-}
-.main>ul>li>div>a{
-	font-size: 18px;
-	color: #000;
-	line-height: 32px;
+body {
+    background-image: url(../../images/pengbei/background-large.png);
+    position: relative;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
-#article{
-	width: 960px;
-	padding-top: 34px;
-	margin: 0 auto;
-	text-align: center;
-	background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0 !important;
-	filter: alpha(opacity=80);
-	background: #fff;
+* {
+    color: #000;
 }
-#article h1{
-	font-size: 24px;
-	margin-bottom: 16px;
-	font-weight: 100;
+
+#loading {
+    display: none;
 }
-#article span{
-	font-size: 14px;
+
+#nav {
+    opacity: 1;
 }
-#article .hr{
-	width: 650px;
-	height: 1px;
-	margin: 16px auto;
-	background-color: #d0c7c7;
+
+#header {
+    position: relative;
+    height: 70px;
 }
-#article div{
-	text-align: left;
-	line-height: 26px;
-	width: 864px;
-	margin: 0 auto;
+
+.main {
+    position: relative;
+    width: 100%;
 }
-#article div p{
-	margin: 12px;
+
+.main ul {
+    width: 100%;
+    height: 78px;
 }
-#article img{
-	max-width: 864px;
-	margin: 16px auto 40px auto;
+
+.main ul li {
+    width: 100%;
+    height: 23px;
 }
-.green{
-	color: #638c0b;
+
+#bread {
+    height: 32px;
+}
+
+.rung {
+    background: #638c0b;
+}
+
+.main ul li div {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.main > ul > li > div > a {
+    font-size: 18px;
+    color: #000;
+    line-height: 32px;
+}
+
+#article {
+    width: 960px;
+    padding-top: 34px;
+    margin: 0 auto;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8) none repeat scroll 0 0 !important;
+    filter: alpha(opacity=80);
+    background: #fff;
+}
+
+#article h1 {
+    font-size: 24px;
+    margin-bottom: 16px;
+    font-weight: 100;
+}
+
+#article span {
+    font-size: 14px;
+}
+
+#article .hr {
+    width: 650px;
+    height: 1px;
+    margin: 16px auto;
+    background-color: #d0c7c7;
+}
+
+#article div {
+    text-align: left;
+    line-height: 26px;
+    width: 864px;
+    margin: 0 auto;
+}
+
+#article div p {
+    margin: 12px;
+}
+
+#article img {
+    max-width: 864px;
+    margin: 16px auto 40px auto;
+}
+
+.green {
+    color: #638c0b;
 }
