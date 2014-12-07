@@ -1,0 +1,20 @@
+<a href="<?php echo $this->url(array('page'=>$this->first));?>" title="首页">&laquo; 首页</a>
+<a href="<?php echo $this->url(array('page'=>$this->previous));?>" title="上一页">&laquo; 上一页</a> 
+
+<?php
+	foreach ($this->pagesInRange as $page){
+		 if ($page != $this->current){
+		 	$url=$this->url(array('page' => $page));
+		 	echo "
+		 		<a href=\"$url\" class=\"number\" title=\"$page\">$page</a>
+		 	";
+		 } else {
+		 	echo "
+		 		<a href=\"#\" class=\"number current\" title=\"$page\">$page</a>
+		 	";
+		 }
+	}
+?>
+
+<a href="<?php echo $this->url(array('page'=>$this->next));?>" title="下一页">下一页 &raquo;</a>
+<a href="<?php echo $this->url(array('page'=>$this->last));?>" title="尾页">尾页 &raquo;</a> 

@@ -163,7 +163,7 @@ $(document).ready(function () {
         });
     }
 
-     console.log(jsonData.top);
+     // console.log(jsonData.top);
 
     $.each(jsonData.top, function (index, item) {
         var imgUrl = item.ImgUrl.split(",")[0];

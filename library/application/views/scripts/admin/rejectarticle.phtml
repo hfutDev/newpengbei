@@ -1,0 +1,42 @@
+<div id="messages">
+
+	<form action="/admin/rejectarticle/id/<?=$this->ID?>/type/post" method="post">
+
+		<h4>退回稿件</h4><hr>
+
+		<fieldset>
+			<p style="font: bold 15px '微软雅黑';color: #222222;text-shadow: 0 0 1px #858585;padding: 5px 0 0 0;"><?=$this->Title?></p>
+			<p><a style="color: dimgray;padding: 0 0 10px 0;"><?=$this->RealName?> | <?=$this->DeptName?> | <?=$this->Date?></a></p>
+			<p style="font: menu;"><strong>退稿原因：</strong> 
+				<label class="power">
+					<input type="checkbox" name="problem_format" class="format"> 缩进问题
+				</label>　
+				<label class="power">
+					<input type="checkbox" name="problem_image" class="image"> 图片问题
+				</label>　
+				<label class="power">
+					<input type="checkbox" name="problem_content" class="content"> 内容问题
+				</label>
+			</p>
+			<textarea class="textarea" name="reason" rows="4" placeholder="另外的原因……"></textarea>
+
+			<p style="display: inline-block;position: relative;left: 42%;padding: 0;">
+				<input class="button" type="submit" value="退稿"/>
+			</p>
+
+		</fieldset>
+
+	</form>
+
+</div> <!-- End #messages -->
+
+<script type="text/javascript">
+	$(".button").eq(4).click(function(){
+		if (($(".textarea").val() == "") && (!$(".format").is(":checked")) && (!$(".image").is(":checked")) && (!$(".content").is(":checked"))) {
+			alert("亲，请指明退稿原因");
+			return false;
+		} else {
+			return true;
+		}
+	});
+</script>

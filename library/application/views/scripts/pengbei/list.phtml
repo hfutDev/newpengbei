@@ -1,0 +1,127 @@
+<?php
+	$DeptUrl4List = null;
+	if (!empty($this->arrDept)) {
+		$arrDept		= $this->arrDept;
+		$DeptName		= $arrDept[0]['DeptName'];
+		$DeptCode		= $arrDept[0]['DeptCode'];
+		$DeptUrl		= $arrDept[0]['DeptID']?"/dept/id/".$arrDept[0]['DeptCode']:null;
+		$DeptUrl4List	= $arrDept[0]['DeptID']?"/dept/".$arrDept[0]['DeptCode']:null;
+	}
+
+	$PageColumn	= $this->arrPageColumn;
+	$ColumnID	= $PageColumn[0]['ColumnID'] - 1;
+	$ColumnName	= $PageColumn[0]['ColumnName'];
+	$ColumnCode	= $PageColumn[0]['ColumnCode'];
+
+	$arrColumn	= $this->arrColumn;
+
+	global $arrList;
+	switch ($ColumnCode) {
+		case 'rdxw': $arrList = $this->arrListrdxw; break;
+		case 'bbfc': $arrList = $this->arrListbbfc; break;
+		case 'hdkj': $arrList = $this->arrListhdkj; break;
+		case 'czzl': $arrList = $this->arrListczzl; break;
+		case 'cysh': $arrList = $this->arrListcysh; break;
+		case 'cgxy': $arrList = $this->arrListcgxy; break;
+		// default : $arrList = $this->arrListrdxw; break;
+	}
+	$paginator = $this->paginator;
+
+	//截取文章
+	function cutstr_html($string, $sublen)
+	{
+		$string = strip_tags($string);
+		$string = preg_replace ('/\n/is', '', $string);
+		$string = preg_replace ('/ |　/is', '', $string);
+		$string = preg_replace ('/&nbsp;/is', '', $string);
+
+		preg_match_all("/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/", $string, $t_string);
+		if(count($t_string[0]) - 0 > $sublen) $string = join('', array_slice($t_string[0], 0, $sublen))."";
+		else $string = join('', array_slice($t_string[0], 0, $sublen));
+		
+		return $string;
+	}
+
+	// 计算中文字符串长度
+	function utf8_strlen($string = null) {
+		preg_match_all("/./us", $string, $match);
+		return count($match[0]);
+	}
+
+	function strRemoveBR($str) {
+		return preg_replace('/<br(\/)?(\s)*(\/)?>/i','',$str);
+	}
+
+	function utf8Substr($str, $from, $len) {
+		$str = strRemoveBR($str);
+		if (utf8_strlen($str)>$len-$from) {
+			$str = preg_replace('#^(?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$from.'}'.
+					'((?:[\x00-\x7F]|[\xC0-\xFF][\x80-\xBF]+){0,'.$len.'}).*#s','$1',$str);
+			$str.= "...";
+		}
+		return $str;
+	}
+
+	function maxlist($arrLength) {
+		$ListLength = 4;
+		return ($ListLength>$arrLength)?$arrLength:$ListLength;
+	}
+?>
+<link rel="stylesheet" type="text/css" href="/css/pengbei/list.css">
+
+<div class="main">
+	<ul>
+		<li class="rung"></li>
+		<li id="bread">
+			<div>
+				<a href="/pengbei">首页</a><span>&nbsp;&gt;&gt;&nbsp;</span><a id="which"></a>
+			</div>
+		</li>
+		<li class="rung"></li>
+	</ul>
+	<div id="move">
+		<ul>
+			<div id="vertical"></div>
+			<?php
+				$row=count($paginator);
+				if($row){
+					foreach ($paginator as $value) {
+						$ID			= $value['ID'];
+						$Title		= $value['Title'];
+						$Article	= cutstr_html($value['Article'], 100);
+						$Author		= $value['Author'];
+						$PublishTime= date('Y-m-d',$value['PublishTime']);
+						$Click		= $value['FakeClick'] + $value['RealClick'];
+						$TopAtDept	= $value['TopAtDept'];
+						$TopAtAll	= $value['TopAtAll'];
+						{ ?>
+							<li>
+								<div class="time"><?=$PublishTime?></div>
+								<div class="circle"></div>
+								<div class="bubble">
+									<div class="content">
+										<div class="content-top">
+											<a href="/pengbei/article/id/<?=$ID?>" class="green longtitle" target="_blank"><?=$Title?></a>
+											<span>&nbsp;&nbsp;<?=$Author?>&nbsp;|&nbsp;<span class="green"><?=$Click?></span>views</span>
+										</div>
+										<p><?=$Article?>……<a href="/pengbei/article/id/<?=$ID?>" target="_blank" class="green">阅读全文»</a></span></p>
+									</div>
+								</div>
+							</li>
+						<?php }
+					}
+				}
+			?>
+		</ul>
+    </div>
+
+    <div id="fen">
+        <div id="list-fenye">
+    		<?php echo $this->paginationControl($this->paginator_all,'Elastic','pengbei/pagination_control.phtml'); ?>
+    	</div>
+    </div>
+</div>
+
+
+<script src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/scripts/pengbei/list.js"></script>
