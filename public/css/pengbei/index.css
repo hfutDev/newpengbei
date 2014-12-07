@@ -88,13 +88,13 @@
     position: absolute;
     bottom: 0;
     padding: 15px 20px;
-    width: 440px;
+    width: 380px;
     overflow: hidden;
 }
 
 #link {
     display: inline-block;
-    width: 400px;
+    width: 340px;
     line-height: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
