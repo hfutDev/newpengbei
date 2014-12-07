@@ -1,5 +1,5 @@
 * {
-    font-family: "Microsoft YaHei";
+    font-family: "微软雅黑", "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #fff;
 }
 
@@ -52,8 +52,6 @@
     position: absolute;
     background: url(../../images/pengbei/sprites.png);
     background-position: 0 -279px;
-    width: 194px;
-    height: 50px;
     right: 0;
     bottom: 0;
 }
@@ -67,6 +65,12 @@
 }
 
 .footer > p {
+    line-height: 68px;
+    font-size: 14px;
+    color: #fff;
+}
+
+.footer > p > a {
     line-height: 68px;
     font-size: 14px;
     color: #fff;
