@@ -95,9 +95,8 @@
 #link {
     display: inline-block;
     width: 340px;
+    height: 18px;
     line-height: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     overflow: hidden;
 }
 
@@ -210,14 +209,14 @@
 
 .list > div > ul.title-list > li > div > span > a {
     font-size: 14px;
+    width: 183px;
+    height: 20px;
     line-height: 20px;
     color: #1b2121;
     letter-spacing: 1px;
     width: 183px;
     display: inline-block;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
 }
 
 .list > div > ul.title-list > li > div > span.date {

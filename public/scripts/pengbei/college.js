@@ -28,7 +28,7 @@ $(document).ready(function () {
         case "土木与水利工程学院":
             deptId = 5;
             break;
-        case "化学工程学院":
+        case "化学与化工学院":
             deptId = 6;
             break;
         case "马克思主义学院":
